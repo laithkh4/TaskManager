@@ -1,9 +1,8 @@
 package firsttask.taskmanager.assemblers;
 
 
-import firsttask.taskmanager.Controller.TaskManagerController;
+import firsttask.taskmanager.Controller.TaskController;
 import firsttask.taskmanager.domain.Task;
-import firsttask.taskmanager.domain.User;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
 import org.springframework.stereotype.Component;
@@ -18,7 +17,7 @@ public class TaskModelAssembler implements RepresentationModelAssembler<Task, En
     public EntityModel<Task> toModel(Task task) {
 
         return  EntityModel.of(task,  //
-                linkTo(methodOn(TaskManagerController.class).returnTask(task.getId())).withSelfRel(),
-                linkTo(methodOn(TaskManagerController.class).returnAllTasks()).withRel("Tasks"));
+                linkTo(methodOn(TaskController.class).returnTask(task.getId())).withSelfRel(),
+                linkTo(methodOn(TaskController.class).returnAllTasks()).withRel("Tasks"));
     }
 }
