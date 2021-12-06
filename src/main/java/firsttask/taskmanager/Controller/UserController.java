@@ -1,6 +1,5 @@
 package firsttask.taskmanager.Controller;
 
-import firsttask.taskmanager.Exceptions.PasswordNotCorrectException;
 import firsttask.taskmanager.Exceptions.UserNotFoundException;
 import firsttask.taskmanager.Repositories.TaskRepository;
 import firsttask.taskmanager.Repositories.UserRepository;
@@ -47,6 +46,7 @@ public class UserController {
     @GetMapping("/users")
     public CollectionModel<EntityModel<User>> returnAllUsers() {
         logger.info("A get all users request initialized ");
+        System.out.println("inside get all");
         List<EntityModel<User>> users = userRepository.findAll().stream() //
                 .map(userModelAssembler::toModel) //
                 .collect(Collectors.toList());
@@ -58,12 +58,13 @@ public class UserController {
 
     // return a  user and his task
     @GetMapping("/users/{id}")
-    public EntityModel<User> returnUser(@PathVariable Long id)  {
-
+    public /*EntityModel<User>*/ User returnUser(@PathVariable Long id)  {
+        logger.info("A get userwith id "+ id  +" request initialized ");
+        System.out.println("inside the get method ");
         User user = userRepository.findById(id) //
                 .orElseThrow(() -> new UserNotFoundException(id));
-
-        return userModelAssembler.toModel(user);
+        logger.trace("retrieving the user with id :  "+ id  );
+        return user;
 
     }
 
@@ -72,6 +73,7 @@ public class UserController {
     @PostMapping("/users")
     ResponseEntity<EntityModel<User>> createNewUser(@RequestBody User newUser) {
         logger.info("A create user request initialized ");
+        System.out.println("inside the post");
         EntityModel<User> userEntityModel = userModelAssembler.toModel(userRepository.save(newUser));
         logger.trace("Creating new user "+ userEntityModel);
         return ResponseEntity //
@@ -83,10 +85,10 @@ public class UserController {
 
     //Editing existing user after making sure of his password
     @PutMapping("/users/{id}")
-    ResponseEntity<?> edUser(@RequestBody User editUser, @PathVariable Long id,@RequestParam String password) {
+    ResponseEntity<?> edUser(@RequestBody User editUser, @PathVariable Long id) {
         logger.info("A update user request initialized ");
         User updatedUser = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
-        if (updatedUser.getPassword().equals(password)){
+        System.out.println("inisde post");
             updatedUser.setId(editUser.getId());
             updatedUser.setName(editUser.getName());
             updatedUser.setEmail(editUser.getEmail());
@@ -96,31 +98,24 @@ public class UserController {
             return ResponseEntity //
                     .created(userEntityModel.getRequiredLink(IanaLinkRelations.SELF).toUri()) //
                     .body(userEntityModel);
-        }else {
 
-            throw new PasswordNotCorrectException();
-        }
     }
 
 
 
     //Delete the user by his id and verify the password of that user
     @DeleteMapping("/users/{id}")
-    void deleteUser(@PathVariable Long id,@RequestParam String password, HttpServletResponse response) throws IOException {
+    void deleteUser(@PathVariable Long id,HttpServletResponse response) throws IOException {
         logger.info("A Delete user request initialized ");
         User user = userRepository.findById(id) //
                 .orElseThrow(() -> new UserNotFoundException(id));
-        if(user.getPassword().equals(password)) {
+        System.out.println("inside delete ");
             userRepository.deleteById(id);
             taskRepository.deleteAllByUser_Id(id);
             logger.trace("Redirecting to the /Users page after deleting a user with id : "+ id );
             response.sendRedirect("");
 
-        }
-        else{
-            throw new PasswordNotCorrectException();
 
-        }
 
     }
 

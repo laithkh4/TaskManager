@@ -1,6 +1,5 @@
 package firsttask.taskmanager.Controller;
 
-import firsttask.taskmanager.Exceptions.PasswordNotCorrectException;
 import firsttask.taskmanager.Exceptions.TaskNotFoundException;
 import firsttask.taskmanager.Exceptions.UserNotFoundException;
 import firsttask.taskmanager.Repositories.TaskRepository;
@@ -42,7 +41,7 @@ public class TaskController {
     }
 
     //return all tasks
-    @GetMapping("/Tasks")
+    @GetMapping("/tasks")
     public CollectionModel<EntityModel<Task>> returnAllTasks() {
         logger.info("A get all tasks  request initialized ");
         List<EntityModel<Task>> tasks = taskRepository.findAll().stream() //
@@ -55,7 +54,7 @@ public class TaskController {
 
 
     //return a task by its id
-    @GetMapping("/Tasks/{id}")
+    @GetMapping("/tasks/{id}")
     public EntityModel<Task> returnTask(@PathVariable Long id) {
         logger.info("A get task request initialized ");
         Task task = taskRepository.findById(id) //
@@ -84,7 +83,7 @@ public class TaskController {
 
 
     // edit the task from the owner user only so we make authentication first
-    @PutMapping("/Tasks/{id}")
+    @PutMapping("/tasks/{id}")
     ResponseEntity<?> edTask(@RequestBody Task editTask, @PathVariable Long id) {
         logger.info("A Update task request initialized ");
       /*  User updatedUser = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException(id));*/
@@ -107,7 +106,7 @@ public class TaskController {
 
 
     // delete a task from the owner only
-    @DeleteMapping("/Tasks/{id}")
+    @DeleteMapping("/tasks/{id}")
     void  deleteTask(@PathVariable Long id, @RequestParam Long userId, HttpServletResponse response) throws IOException {
         logger.info("A delete task  request initialized ");
         User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException(id));
