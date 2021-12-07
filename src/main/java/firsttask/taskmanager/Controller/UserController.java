@@ -7,11 +7,14 @@ import firsttask.taskmanager.Repositories.UserRepository;
 import firsttask.taskmanager.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.nio.file.AccessDeniedException;
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -46,12 +49,19 @@ public class UserController {
 
     // return a  user and his task
     @GetMapping("/users/{id}")
-    public  User returnUser(@PathVariable Long id)  throws GeneralException {
+    public  User returnUser(@PathVariable Long id) throws GeneralException, AccessDeniedException {
         logger.info("A get userwith id "+ id  +" request initialized ");
+        //User requestUser=userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
         User user = userRepository.findById(id) //
                 .orElseThrow(() -> new UserNotFoundException(id));
-        logger.trace("retrieving the user with id :  "+ id  );
-        return user;
+        User requestingUser=Optional.of((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).orElseThrow(() -> new UserNotFoundException(id));
+        if (user.getId()==requestingUser.getId() && user.getPassword().equals(requestingUser.getPassword())) {
+            System.out.println(Optional.of(((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getEmail()));
+            logger.trace("retrieving the user with id :  " + id);
+            return user;
+        }else {
+            throw new AccessDeniedException("access denied please try again");
+        }
 
     }
 
@@ -93,6 +103,7 @@ public class UserController {
               userRepository.deleteById(id);
               taskRepository.deleteAllByUser_Id(id);
           }
+
           logger.trace("Redirecting to the /Users page after deleting a user with id : " + id);
           response.sendRedirect("");
 
