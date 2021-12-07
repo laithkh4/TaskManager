@@ -37,6 +37,7 @@ public class UserController {
         logger.info("A get all users request initialized ");
 
         List<User> users = userRepository.findAll();
+
         logger.trace("retrieving all the users " );
         return users;
     }
@@ -59,9 +60,10 @@ public class UserController {
     @PostMapping("/users")
     User createNewUser(@RequestBody User newUser) throws GeneralException {
         logger.info("A create user request initialized ");
-        User createdUser = userRepository.save(newUser);
-        logger.trace("Creating new user "+ createdUser);
-        return createdUser;
+
+      userRepository.save(newUser);
+        logger.trace("Creating new user "+ newUser);
+        return newUser;
     }
 
 

@@ -59,7 +59,7 @@ public class TaskController {
         User user = userRepository.findById(id).orElseThrow(()->new UserNotFoundException(id));
 
             Task newTask = taskRepository.save(task);
-            task.setUser(user);
+          //  task.setUser(user);
             //notice that we have to add the task to the user object and add the user object to the task so that jpa can create load the table correctly for us
             user.addTask(task);
             userRepository.save(user);

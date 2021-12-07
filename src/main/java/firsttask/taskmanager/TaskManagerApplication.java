@@ -10,7 +10,6 @@ public class TaskManagerApplication {
 
     public static void main(String[] args) {
 
-        System.out.println("This app is running ");
         SpringApplication.run(TaskManagerApplication.class, args);
     }
 
