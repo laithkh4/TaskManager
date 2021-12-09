@@ -1,6 +1,6 @@
 package firsttask.taskmanager.Controller;
 
-import firsttask.taskmanager.Exceptions.GeneralException;
+
 import firsttask.taskmanager.Exceptions.UserNotFoundException;
 import firsttask.taskmanager.Repositories.TaskRepository;
 import firsttask.taskmanager.Repositories.UserRepository;
@@ -8,6 +8,7 @@ import firsttask.taskmanager.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -26,7 +27,7 @@ public class UserController {
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
 
-    public UserController(TaskRepository taskRepository, UserRepository userRepository) throws GeneralException {
+    public UserController(TaskRepository taskRepository, UserRepository userRepository) throws Exception {
         this.taskRepository = taskRepository;
         this.userRepository = userRepository;
         logger.trace("creating Repositories and assemblers ");
@@ -36,7 +37,8 @@ public class UserController {
 
     //return all the users in that database
     @GetMapping("/users")
-    public  List<User> returnAllUsers() throws GeneralException {
+    public  List<User> returnAllUsers() throws Exception {
+
         logger.info("A get all users request initialized ");
 
         List<User> users = userRepository.findAll();
@@ -49,18 +51,18 @@ public class UserController {
 
     // return a  user and his task
     @GetMapping("/users/{id}")
-    public  User returnUser(@PathVariable Long id) throws GeneralException, AccessDeniedException {
+    public  User returnUser(@PathVariable Long id) throws Exception, AccessDeniedException {
         logger.info("A get userwith id "+ id  +" request initialized ");
         //User requestUser=userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
-        User user = userRepository.findById(id) //
+        User requestedUser = userRepository.findById(id) //
                 .orElseThrow(() -> new UserNotFoundException(id));
-        User requestingUser=Optional.of((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).orElseThrow(() -> new UserNotFoundException(id));
-        if (user.getId()==requestingUser.getId() && user.getPassword().equals(requestingUser.getPassword())) {
+        User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (requestedUser.getId()==requestingUser.getId() && requestedUser.getPassword().equals(requestingUser.getPassword())) {
             System.out.println(Optional.of(((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getEmail()));
             logger.trace("retrieving the user with id :  " + id);
-            return user;
+            return requestedUser  ;
         }else {
-            throw new AccessDeniedException("access denied please try again");
+            throw new AccessDeniedException("You are not allowed to access this page!");
         }
 
     }
@@ -68,9 +70,10 @@ public class UserController {
 
     //creating user
     @PostMapping("/users")
-    User createNewUser(@RequestBody User newUser) throws GeneralException {
+    User createNewUser(@RequestBody User newUser) throws Exception {
         logger.info("A create user request initialized ");
-
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        newUser.setPassword( "{bcrypt}" + encoder.encode(newUser.getPassword()));
       userRepository.save(newUser);
         logger.trace("Creating new user "+ newUser);
         return newUser;
@@ -80,32 +83,43 @@ public class UserController {
 
     //Editing existing user after making sure of his password
     @PutMapping("/users/{id}")
-    User edUser(@RequestBody User editUser, @PathVariable Long id) throws GeneralException {
+    User edUser(@RequestBody User editUser, @PathVariable Long id) throws Exception, AccessDeniedException {
         logger.info("A update user request initialized ");
         User updatedUser = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
-        updatedUser.setId(editUser.getId());
-        updatedUser.setName(editUser.getName());
-        updatedUser.setEmail(editUser.getEmail());
-        updatedUser.setAge(editUser.getAge());
+        User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (updatedUser.getId()==requestingUser.getId() && updatedUser.getPassword().equals(requestingUser.getPassword())) {
+
+            updatedUser.setId(editUser.getId());
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            updatedUser.setPassword( "{bcrypt}" + encoder.encode(editUser.getPassword()));
+            updatedUser.setName(editUser.getName());
+            updatedUser.setEmail(editUser.getEmail());
+            updatedUser.setAge(editUser.getAge());
 
         logger.trace("updating user information " + updatedUser);
         return updatedUser;
+        } else {
+            throw new AccessDeniedException("You are not allowed to access this page!");
+        }
     }
 
 
 
     //Delete the user by his id and verify the password of that user
     @DeleteMapping("/users/{id}")
-    void deleteUser(@PathVariable Long id,HttpServletResponse response) throws IOException, GeneralException {
+    void deleteUser(@PathVariable Long id,HttpServletResponse response) throws IOException, Exception {
+        User requestedUser =  userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
+        User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (requestedUser.getId()==requestingUser.getId() && requestedUser.getPassword().equals(requestingUser.getPassword())) {
 
-          logger.info("A Delete user request initialized ");
-          if (userRepository.existsById(id)) {
-              userRepository.deleteById(id);
-              taskRepository.deleteAllByUser_Id(id);
-          }
+            logger.info("A Delete user request initialized ");
+            if (userRepository.existsById(id)) {
+                userRepository.deleteById(id);
+                taskRepository.deleteAllByUser_Id(id);
+            }
 
-          logger.trace("Redirecting to the /Users page after deleting a user with id : " + id);
-          response.sendRedirect("");
-
+            logger.trace("Redirecting to the /Users page after deleting a user with id : " + id);
+            response.sendRedirect("");
+        }
     }
 }

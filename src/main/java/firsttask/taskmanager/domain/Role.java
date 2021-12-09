@@ -3,10 +3,7 @@ package firsttask.taskmanager.domain;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
@@ -24,6 +21,7 @@ class Role {
     private Long id;
 
     @NonNull
+    @Column(nullable = false, unique = true)
     private String name;
 
     @ManyToMany( mappedBy = "roles")
