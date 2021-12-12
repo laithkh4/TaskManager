@@ -15,7 +15,7 @@ import java.util.function.Function;
 @Service
 public class JwtUtil {
 
-    private String SECRET_KEY = "secret";// this key is used to encrypt the jwt it should be stored in a save file and encrypted and decrypted when needed
+    private final String SECRET_KEY = "secret";// this key is used to encrypt the jwt it should be stored in a save file and encrypted and decrypted when needed
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);

@@ -1,15 +1,18 @@
 package firsttask.taskmanager.domain;
 
 
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.*;
-import java.util.stream.Collectors;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -39,43 +42,12 @@ public class User implements UserDetails {// this interface used to hook the use
     @NonNull
     private int age;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
     private List<Task> Tasks = new ArrayList<>();
-
-
-    @ManyToMany(fetch = FetchType.EAGER)// fetch all the roles at once
-    @JoinTable(
-            name = "users_roles",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
-
-    )
-    private Set<Role> roles = new HashSet<>();
-
-    public void addTask(Task newTask) {
-        Tasks.add(newTask);
-    }
-    public void addRole(Role role){
-        roles.add(role);
-    }
-    public void addRoles(Set<Role> roles){
-        roles.forEach(this::addRole);
-    }
-    public void deleteRole(String name){
-        for(Role role : roles){
-            if(role.getName().equals(name))
-                roles.remove(role);
-        }
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        /*List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        for (Role role : roles) {
-            authorities.add(new SimpleGrantedAuthority(role.getName()));
-        }
-        return authorities;*/
-        return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
+        return null;//We removed the role authorities
     }
 
     //user detail methods
@@ -99,16 +71,15 @@ public class User implements UserDetails {// this interface used to hook the use
     public boolean isEnabled() {
         return true;
     }
+
     @Override
-
-
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", age=" + age +
-                ", Tasks=" + Tasks +
                 '}';
     }
     public String getName() {
@@ -130,9 +101,6 @@ public class User implements UserDetails {// this interface used to hook the use
     public Long getId() {
         return id;
     }
-    public Set<Role> getRoles() {
-        return roles;
-    }
     public void setId(Long id) {
         this.id = id;
     }
@@ -151,7 +119,8 @@ public class User implements UserDetails {// this interface used to hook the use
     public void setTasks(List<Task> tasks) {
         Tasks = tasks;
     }
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void addTask(Task task){
+        Tasks.add(task);
+
     }
 }
