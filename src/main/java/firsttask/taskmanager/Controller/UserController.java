@@ -112,7 +112,7 @@ public class UserController {
         User updatedUser = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
         User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (updatedUser.getId().longValue()==requestingUser.getId().longValue() && updatedUser.getPassword().equals(requestingUser.getPassword())) {
-            updatedUser.setId(editUser.getId());
+            updatedUser.setId(id);
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
             updatedUser.setPassword( "{bcrypt}" + encoder.encode(editUser.getPassword()));
             updatedUser.setName(editUser.getName());
