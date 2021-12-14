@@ -18,6 +18,7 @@ import java.util.List;
 
 
 @RestController// don't ever forget this annotation
+@RequestMapping("/user")
 public class TaskController {
     private final TaskRepository taskRepository;
     private final UserRepository userRepository;

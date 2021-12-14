@@ -1,7 +1,6 @@
 package firsttask.taskmanager.Controller;
 
 
-import firsttask.taskmanager.Exceptions.UserNotFoundException;
 import firsttask.taskmanager.Models.AuthenticationRequest;
 import firsttask.taskmanager.Models.AuthenticationResponse;
 import firsttask.taskmanager.Repositories.TaskRepository;
@@ -22,8 +21,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.nio.file.AccessDeniedException;
-import java.util.List;
 
 
 @RestController
@@ -38,7 +35,7 @@ public class UserController {
     private final TaskRepository taskRepository;
     private final UserRepository userRepository;
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
-    public UserController(TaskRepository taskRepository, UserRepository userRepository) throws Exception {
+    public UserController(TaskRepository taskRepository, UserRepository userRepository)  {
         this.taskRepository = taskRepository;
         this.userRepository = userRepository;
     }
@@ -62,33 +59,11 @@ public class UserController {
         return new AuthenticationResponse(jwt);
     }
 
-    //return all the users in that database
-    @GetMapping("/users")
-    public  List<User> returnAllUsers() {
-
-        LOGGER.info("A get all users request initialized ");
-
-        List<User> users = userRepository.findAll();
-
-        LOGGER.trace("retrieving all the users " );
-        return users;
-    }
-
-
-
     // return a  user and his task
-    @GetMapping("/users/{id}")
-    public  User returnUser(@PathVariable Long id) throws  AccessDeniedException {
-        LOGGER.info("A get userwith id "+ id  +" request initialized ");
-        User requestedUser = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
-        User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (requestedUser.getId().longValue()==requestingUser.getId().longValue() && requestedUser.getPassword().equals(requestingUser.getPassword())) {
-            LOGGER.trace("retrieving the user with id :  " + id);
-            return requestedUser  ;
-        }else {
-            throw new AccessDeniedException("You are not allowed to access this page!");
-        }
-
+    @GetMapping("/user")
+    public  User returnUser()  {
+        LOGGER.info("A get user  request initialized ");
+        return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 
 
@@ -106,43 +81,37 @@ public class UserController {
 
 
     //Editing existing user after making sure of his password
-    @PutMapping("/users/{id}")
-    User edUser(@RequestBody User editUser, @PathVariable Long id) throws  AccessDeniedException {
+    @PutMapping("/user")
+    User edUser(@RequestBody User editUser )  {
         LOGGER.info("A update user request initialized ");
-        User updatedUser = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
         User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (updatedUser.getId().longValue()==requestingUser.getId().longValue() && updatedUser.getPassword().equals(requestingUser.getPassword())) {
-            updatedUser.setId(id);
-            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-            updatedUser.setPassword( "{bcrypt}" + encoder.encode(editUser.getPassword()));
-            updatedUser.setName(editUser.getName());
-            updatedUser.setEmail(editUser.getEmail());
-            updatedUser.setAge(editUser.getAge());
 
-            LOGGER.trace("updating user information " + updatedUser);
-        return updatedUser;
-        } else {
-            throw new AccessDeniedException("You are not allowed to access this page!");
-        }
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            requestingUser.setPassword( "{bcrypt}" + encoder.encode(editUser.getPassword()));
+            requestingUser.setName(editUser.getName());
+            requestingUser.setEmail(editUser.getEmail());
+            requestingUser.setAge(editUser.getAge());
+
+            LOGGER.trace("updating user information " );
+        return requestingUser;
     }
 
 
 
     //Delete the user by his id and verify the password of that user
-    @DeleteMapping("/users/{id}")
-    void deleteUser(@PathVariable Long id,HttpServletResponse response) throws IOException {
-        User requestedUser =  userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
-        User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (requestedUser.getId().longValue()==requestingUser.getId().longValue() && requestedUser.getPassword().equals(requestingUser.getPassword())) {
+    @DeleteMapping("/user")
+    void deleteUser(HttpServletResponse response) throws IOException {
 
+        User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             LOGGER.info("A Delete user request initialized ");
-            if (userRepository.existsById(id)) {
-                userRepository.deleteById(id);
-                taskRepository.deleteAllByUser_Id(id);
+            if (userRepository.existsById(requestingUser.getId())) {
+                taskRepository.deleteAllByUser_Id(requestingUser.getId());
+                userRepository.deleteById(requestingUser.getId());
+
             }
 
-            LOGGER.trace("Redirecting to the /Users page after deleting a user with id : " + id);
-            response.sendRedirect("");
-        }
+            LOGGER.trace("Redirecting to the /User page after deleting a user with id");
+            response.sendRedirect("/login");// the reason that delete return forbidden after the delete request  is that this redirect to the previously called users page which forbidden to user not logged in
+
     }
 }

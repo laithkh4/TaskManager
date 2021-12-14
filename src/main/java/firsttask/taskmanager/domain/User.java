@@ -1,6 +1,8 @@
 package firsttask.taskmanager.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -31,6 +33,7 @@ public class User implements UserDetails {// this interface used to hook the use
     private String name;
 
     @NonNull
+
     @Column(nullable = false, length = 100)
     private String password;
 
@@ -86,6 +89,8 @@ public class User implements UserDetails {// this interface used to hook the use
         return name;
     }
     @Override
+    @JsonIgnore// To prevent the password from being  retrieved with the request(more secure)
+    @JsonProperty(value = "user_password")
     public String getPassword() {
         return password;
     }
