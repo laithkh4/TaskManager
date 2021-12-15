@@ -1,15 +1,20 @@
 package firsttask.taskmanager.domain;
 
 
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.*;
-import java.util.stream.Collectors;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -19,6 +24,7 @@ import javax.validation.constraints.Size;
 //@ToString
 @EqualsAndHashCode
 public class User implements UserDetails {// this interface used to hook the user class with the spring security
+
     @Id
     @GeneratedValue
     private Long id;
@@ -27,6 +33,7 @@ public class User implements UserDetails {// this interface used to hook the use
     private String name;
 
     @NonNull
+
     @Column(nullable = false, length = 100)
     private String password;
 
@@ -38,38 +45,12 @@ public class User implements UserDetails {// this interface used to hook the use
     @NonNull
     private int age;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
     private List<Task> Tasks = new ArrayList<>();
 
-
-    @ManyToMany(fetch = FetchType.EAGER)// fetch all the roles at once
-    @JoinTable(
-            name = "users_roles",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
-
-    )
-    private Set<Role> roles = new HashSet<>();
-
-
-    public void addTask(Task newTask) {
-        Tasks.add(newTask);
-    }
-
-    public void addRole(Role role){
-        roles.add(role);
-    }
-    public void addRoles(Set<Role> roles){
-        roles.forEach(this::addRole);
-    }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        /*List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        for (Role role : roles) {
-            authorities.add(new SimpleGrantedAuthority(role.getName()));
-        }
-        return authorities;*/
-        return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
+        return null;//We removed the role authorities
     }
 
     //user detail methods
@@ -77,22 +58,18 @@ public class User implements UserDetails {// this interface used to hook the use
     public String getUsername() {
         return email;
     }
-
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
-
     @Override
     public boolean isAccountNonLocked() {
         return true;
     }
-
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
     }
-
     @Override
     public boolean isEnabled() {
         return true;
@@ -101,68 +78,54 @@ public class User implements UserDetails {// this interface used to hook the use
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", age=" + age +
-                ", Tasks=" + Tasks +
                 '}';
     }
-
     public String getName() {
         return name;
     }
-
     @Override
+    @JsonIgnore// To prevent the password from being  retrieved with the request(more secure)
+    @JsonProperty(value = "user_password")
     public String getPassword() {
         return password;
     }
-
     public String getEmail() {
         return email;
     }
-
     public int getAge() {
         return age;
     }
-
     public List<Task> getTasks() {
         return Tasks;
     }
-
     public Long getId() {
         return id;
     }
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
-
     public void setAge(int age) {
         this.age = age;
     }
-
     public void setTasks(List<Task> tasks) {
         Tasks = tasks;
     }
+    public void addTask(Task task){
+        Tasks.add(task);
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
     }
 }

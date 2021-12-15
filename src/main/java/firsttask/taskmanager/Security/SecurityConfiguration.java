@@ -1,41 +1,37 @@
 package firsttask.taskmanager.Security;
 
 
-import org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequest;
+import firsttask.taskmanager.Security.Filters.JwtRequestFilter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-
+    @Autowired
     private UserDetailsServiceImpl  userDetailsService;
-    public SecurityConfiguration(UserDetailsServiceImpl userDetailsService){
-        this.userDetailsService=userDetailsService;
+    @Autowired
+    private JwtRequestFilter jwtRequestFilter;
 
-    }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        /*super.configure(http);*/
-      /*  http.authorizeRequests().anyRequest().authenticated().and().formLogin().and().httpBasic();*/
+     http.csrf().disable()
+             .authorizeRequests().antMatchers("/login").permitAll()
+             .and()
+             .authorizeRequests().antMatchers("/register").permitAll()
+             .anyRequest().authenticated()
+             .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-        http
-           .authorizeRequests()   .requestMatchers(EndpointRequest.to("info")).permitAll()
-                .requestMatchers(EndpointRequest.toAnyEndpoint()).hasRole("ADMIN")
-                .antMatchers("/actuator/").hasRole("ADMIN")
-                .antMatchers("/users").permitAll()
-                .antMatchers("/users/{id}").hasRole("USER")
-
-           .and()
-                .logout()
-
-                .and()
-                .formLogin();
+     http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
     @Override
@@ -44,4 +40,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 auth.userDetailsService(userDetailsService);
 
     }
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
 }
