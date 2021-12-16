@@ -67,13 +67,13 @@ public class UserController {
         String jwt = authorizationHeader.substring(7);
 
         jwtTokenUtil.addTokenToBlackList(jwt);
+        // here we should redirect to another page
     }
     @PostMapping("/user/logoutall")
     public void logOutAll(HttpServletRequest request){
-        final String authorizationHeader = request.getHeader("Authorization");
-        String jwt = authorizationHeader.substring(7);
-
         jwtTokenUtil.moveAllTokensToBlackList();
+        // here we should redirect to another page
+
     }
     // return a  user and his task
     @GetMapping("/user")

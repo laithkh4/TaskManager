@@ -29,10 +29,6 @@ public class JwtUtil {
     }
 
    public boolean isTokenInBlackList(String Token){
-       System.out.println("before the to string of the checking for the teoken");
-       System.out.println(blackListTokens.toString());
-       System.out.println("The Token is "+ Token);
-       System.out.println(blackListTokens.contains(Token));
         return blackListTokens.contains(Token);
    }
     public String extractUsername(String token) {
