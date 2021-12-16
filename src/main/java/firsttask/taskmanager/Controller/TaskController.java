@@ -1,6 +1,7 @@
 package firsttask.taskmanager.Controller;
 
 
+import firsttask.taskmanager.Exceptions.DateNotAllowedException;
 import firsttask.taskmanager.Exceptions.UserNotFoundException;
 import firsttask.taskmanager.Repositories.TaskRepository;
 import firsttask.taskmanager.Repositories.UserRepository;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.file.AccessDeniedException;
+import java.util.Date;
 import java.util.List;
 
 
@@ -62,7 +64,8 @@ public class TaskController {
     Task createTask(@RequestBody Task task) {
         LOGGER.info("A create task request initialized ");
         User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            Task newTask = taskRepository.save(task);
+        checkDate(task);
+        Task newTask = taskRepository.save(task);
            task.setUser(requestingUser);
             //notice that we have to add the task to the user object and add the user object to the task so that jpa can create load the table correctly for us
             requestingUser.addTask(task);
@@ -83,9 +86,12 @@ public class TaskController {
         User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (requestedUser.getId().longValue()==requestingUser.getId().longValue() && requestedUser.getPassword().equals(requestingUser.getPassword())) {
 
+            checkDate(task);
             Task updatedTask = taskRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
             updatedTask.setDescription(editTask.getDescription());
             updatedTask.setCompleted(editTask.isCompleted());
+            updatedTask.setEndDate(editTask.getEndDate());
+            updatedTask.setStartDate(editTask.getStartDate());
             LOGGER.trace("Updating a task to a user with id : " + id );
             return updatedTask;
         } else {
@@ -94,6 +100,23 @@ public class TaskController {
 
     }
 
+    private void checkDate(Task task) {
+        Date startDateToCheck=task.getStartDate();
+        Date endDateToCheck=task.getEndDate();
+
+        List<Task> tasks=taskRepository.findAll();
+        for(Task testTask:tasks){
+            if (startDateToCheck.after(testTask.getStartDate()) && startDateToCheck.before(testTask.getEndDate()) )
+                throw new DateNotAllowedException();
+            else if (endDateToCheck.after(testTask.getStartDate()) && endDateToCheck.before(testTask.getEndDate()))
+
+                throw new DateNotAllowedException();
+            else if (startDateToCheck.equals(testTask.getStartDate()) ||startDateToCheck.equals(testTask.getEndDate()) )
+                throw new DateNotAllowedException();
+            else if (endDateToCheck.equals(testTask.getStartDate()) ||endDateToCheck.equals(testTask.getEndDate()) )
+                throw new DateNotAllowedException();
+        }
+    }
 
 
     // delete a task from the owner only
