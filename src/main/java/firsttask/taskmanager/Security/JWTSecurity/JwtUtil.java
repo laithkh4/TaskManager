@@ -7,16 +7,34 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 
 @Service
 public class JwtUtil {
 
     private final String SECRET_KEY = "secret";// this key is used to encrypt the jwt it should be stored in a save file and encrypted and decrypted when needed
+    private static List<String> blackListTokens= new ArrayList<>();
+    private static List<String> loggedInUserTokens= new ArrayList<>();
 
+    public void addTokenToBlackList(String Token){
+        blackListTokens.add(Token);
+
+    }
+    public void addTokenToLoggedInUserTokens(String Token){
+        loggedInUserTokens.add(Token);
+    }
+    public void moveAllTokensToBlackList(){
+        blackListTokens.addAll(loggedInUserTokens);
+    }
+
+   public boolean isTokenInBlackList(String Token){
+       System.out.println("before the to string of the checking for the teoken");
+       System.out.println(blackListTokens.toString());
+       System.out.println("The Token is "+ Token);
+       System.out.println(blackListTokens.contains(Token));
+        return blackListTokens.contains(Token);
+   }
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
@@ -53,6 +71,6 @@ public class JwtUtil {
 
     public Boolean validateToken(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
-        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token) && !isTokenInBlackList(token));
     }
 }

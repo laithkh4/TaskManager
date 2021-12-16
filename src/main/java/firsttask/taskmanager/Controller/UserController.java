@@ -19,6 +19,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
@@ -47,6 +48,7 @@ public class UserController {
         }
         catch (BadCredentialsException e) {
             LOGGER.info("an exception must be thrown here ");
+
             throw new BadCredentialsException("Incorrect username or password", e);
         }
 
@@ -55,10 +57,24 @@ public class UserController {
                 .loadUserByUsername(authenticationRequest.getUsername());
 
         final String jwt = jwtTokenUtil.generateToken(userDetails);
-
+            jwtTokenUtil.addTokenToLoggedInUserTokens(jwt);
         return new AuthenticationResponse(jwt);
     }
 
+    @PostMapping("/user/logout")
+    public void logOut(HttpServletRequest request){
+        final String authorizationHeader = request.getHeader("Authorization");
+        String jwt = authorizationHeader.substring(7);
+
+        jwtTokenUtil.addTokenToBlackList(jwt);
+    }
+    @PostMapping("/user/logoutall")
+    public void logOutAll(HttpServletRequest request){
+        final String authorizationHeader = request.getHeader("Authorization");
+        String jwt = authorizationHeader.substring(7);
+
+        jwtTokenUtil.moveAllTokensToBlackList();
+    }
     // return a  user and his task
     @GetMapping("/user")
     public  User returnUser()  {
