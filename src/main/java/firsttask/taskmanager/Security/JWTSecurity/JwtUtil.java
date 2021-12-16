@@ -1,21 +1,31 @@
 package firsttask.taskmanager.Security.JWTSecurity;
 
 
+import firsttask.taskmanager.Repositories.TokenRepository;
+import firsttask.taskmanager.domain.Tokens;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 
 @Service
 public class JwtUtil {
 
     private final String SECRET_KEY = "secret";// this key is used to encrypt the jwt it should be stored in a save file and encrypted and decrypted when needed
+
+    private  TokenRepository tokenRepository;
+
+    public JwtUtil(TokenRepository tokenRepository) {
+        this.tokenRepository = tokenRepository;
+    }
+    public boolean isTokenInDB(String token, UserDetails userDetails){
+        return tokenRepository.existsById(token);
+    }
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
@@ -53,6 +63,6 @@ public class JwtUtil {
 
     public Boolean validateToken(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
-        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token) && isTokenInDB(token,userDetails));
     }
 }

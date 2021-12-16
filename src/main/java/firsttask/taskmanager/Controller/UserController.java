@@ -4,9 +4,11 @@ package firsttask.taskmanager.Controller;
 import firsttask.taskmanager.Models.AuthenticationRequest;
 import firsttask.taskmanager.Models.AuthenticationResponse;
 import firsttask.taskmanager.Repositories.TaskRepository;
+import firsttask.taskmanager.Repositories.TokenRepository;
 import firsttask.taskmanager.Repositories.UserRepository;
 import firsttask.taskmanager.Security.JWTSecurity.JwtUtil;
 import firsttask.taskmanager.Security.UserDetailsServiceImpl;
+import firsttask.taskmanager.domain.Tokens;
 import firsttask.taskmanager.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +21,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
@@ -34,10 +37,12 @@ public class UserController {
 
     private final TaskRepository taskRepository;
     private final UserRepository userRepository;
+    private final TokenRepository tokenRepository;
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
-    public UserController(TaskRepository taskRepository, UserRepository userRepository)  {
+    public UserController(TaskRepository taskRepository, UserRepository userRepository, TokenRepository tokenRepository)  {
         this.taskRepository = taskRepository;
         this.userRepository = userRepository;
+        this.tokenRepository = tokenRepository;
     }
     @PostMapping("/login")
     public AuthenticationResponse createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest)  throws BadCredentialsException {
@@ -47,6 +52,7 @@ public class UserController {
         }
         catch (BadCredentialsException e) {
             LOGGER.info("an exception must be thrown here ");
+
             throw new BadCredentialsException("Incorrect username or password", e);
         }
 
@@ -55,10 +61,28 @@ public class UserController {
                 .loadUserByUsername(authenticationRequest.getUsername());
 
         final String jwt = jwtTokenUtil.generateToken(userDetails);
-
+        Tokens token= new Tokens();
+        token.setJwtToken(jwt);
+        User user=(User)userDetails;
+        token.setUser(user);
+        tokenRepository.save(token);
+        user.addToken(token);
+        userRepository.save(user);
         return new AuthenticationResponse(jwt);
     }
 
+    @PostMapping("/user/logout")
+    public void logOut(HttpServletRequest request){
+        final String authorizationHeader = request.getHeader("Authorization");
+        String jwt = authorizationHeader.substring(7);
+        tokenRepository.deleteById(jwt);
+    }
+    @PostMapping("/user/logoutall")
+    public void logOutAll(HttpServletRequest request){
+        User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        tokenRepository.deleteAllByUserId(requestingUser.getId());
+
+    }
     // return a  user and his task
     @GetMapping("/user")
     public  User returnUser()  {

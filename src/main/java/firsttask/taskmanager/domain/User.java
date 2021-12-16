@@ -48,6 +48,9 @@ public class User implements UserDetails {// this interface used to hook the use
     @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
     private List<Task> Tasks = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user")
+    private List<Tokens> Tokens = new ArrayList<>();
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;//We removed the role authorities
@@ -126,6 +129,10 @@ public class User implements UserDetails {// this interface used to hook the use
     }
     public void addTask(Task task){
         Tasks.add(task);
+
+    }
+    public void addToken(Tokens token){
+        Tokens.add(token);
 
     }
 }
