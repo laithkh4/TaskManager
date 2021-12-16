@@ -1,9 +1,12 @@
 package firsttask.taskmanager.Security.JWTSecurity;
 
 
+import firsttask.taskmanager.Repositories.TokenRepository;
+import firsttask.taskmanager.domain.Tokens;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -14,23 +17,16 @@ import java.util.function.Function;
 public class JwtUtil {
 
     private final String SECRET_KEY = "secret";// this key is used to encrypt the jwt it should be stored in a save file and encrypted and decrypted when needed
-    private static List<String> blackListTokens= new ArrayList<>();
-    private static List<String> loggedInUserTokens= new ArrayList<>();
 
-    public void addTokenToBlackList(String Token){
-        blackListTokens.add(Token);
+    private  TokenRepository tokenRepository;
 
+    public JwtUtil(TokenRepository tokenRepository) {
+        this.tokenRepository = tokenRepository;
     }
-    public void addTokenToLoggedInUserTokens(String Token){
-        loggedInUserTokens.add(Token);
-    }
-    public void moveAllTokensToBlackList(){
-        blackListTokens.addAll(loggedInUserTokens);
+    public boolean isTokenInDB(String token, UserDetails userDetails){
+        return tokenRepository.existsById(token);
     }
 
-   public boolean isTokenInBlackList(String Token){
-        return blackListTokens.contains(Token);
-   }
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
@@ -67,6 +63,6 @@ public class JwtUtil {
 
     public Boolean validateToken(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
-        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token) && !isTokenInBlackList(token));
+        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token) );
     }
 }

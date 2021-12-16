@@ -4,9 +4,11 @@ package firsttask.taskmanager.Controller;
 import firsttask.taskmanager.Models.AuthenticationRequest;
 import firsttask.taskmanager.Models.AuthenticationResponse;
 import firsttask.taskmanager.Repositories.TaskRepository;
+import firsttask.taskmanager.Repositories.TokenRepository;
 import firsttask.taskmanager.Repositories.UserRepository;
 import firsttask.taskmanager.Security.JWTSecurity.JwtUtil;
 import firsttask.taskmanager.Security.UserDetailsServiceImpl;
+import firsttask.taskmanager.domain.Tokens;
 import firsttask.taskmanager.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,10 +37,12 @@ public class UserController {
 
     private final TaskRepository taskRepository;
     private final UserRepository userRepository;
+    private final TokenRepository tokenRepository;
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
-    public UserController(TaskRepository taskRepository, UserRepository userRepository)  {
+    public UserController(TaskRepository taskRepository, UserRepository userRepository, TokenRepository tokenRepository)  {
         this.taskRepository = taskRepository;
         this.userRepository = userRepository;
+        this.tokenRepository = tokenRepository;
     }
     @PostMapping("/login")
     public AuthenticationResponse createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest)  throws BadCredentialsException {
@@ -57,7 +61,13 @@ public class UserController {
                 .loadUserByUsername(authenticationRequest.getUsername());
 
         final String jwt = jwtTokenUtil.generateToken(userDetails);
-            jwtTokenUtil.addTokenToLoggedInUserTokens(jwt);
+        Tokens token= new Tokens();
+        token.setJwtToken(jwt);
+        User user=(User)userDetails;
+        token.setUser(user);
+        tokenRepository.save(token);
+        user.addToken(token);
+        userRepository.save(user);
         return new AuthenticationResponse(jwt);
     }
 
@@ -65,14 +75,12 @@ public class UserController {
     public void logOut(HttpServletRequest request){
         final String authorizationHeader = request.getHeader("Authorization");
         String jwt = authorizationHeader.substring(7);
-
-        jwtTokenUtil.addTokenToBlackList(jwt);
-        // here we should redirect to another page
+        tokenRepository.deleteById(jwt);
     }
     @PostMapping("/user/logoutall")
     public void logOutAll(HttpServletRequest request){
-        jwtTokenUtil.moveAllTokensToBlackList();
-        // here we should redirect to another page
+        User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        tokenRepository.deleteAllByUserId(requestingUser.getId());
 
     }
     // return a  user and his task
