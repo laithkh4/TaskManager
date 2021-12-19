@@ -6,6 +6,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @NoArgsConstructor
@@ -15,11 +16,14 @@ public class Task {
     @Id
     @GeneratedValue
     private Long id;
-
     @NonNull
     private String description;
     @NonNull
     private boolean completed;
+    @NonNull
+    private Date startDate;
+    @NonNull
+    private Date endDate;
     @ManyToOne
     private User user;
 
@@ -46,6 +50,18 @@ public class Task {
     }
     public void setUser(User user) {
         this.user = user;
+    }
+    public Date getStartDate() {
+        return startDate;
+    }
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+    public Date getEndDate() {
+        return endDate;
+    }
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
     @Override
