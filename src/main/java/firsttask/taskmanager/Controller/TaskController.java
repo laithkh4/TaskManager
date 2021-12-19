@@ -9,6 +9,9 @@ import firsttask.taskmanager.domain.Task;
 import firsttask.taskmanager.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +20,7 @@ import java.io.IOException;
 import java.nio.file.AccessDeniedException;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController// don't ever forget this annotation
@@ -32,10 +36,11 @@ public class TaskController {
 
     //return all tasks
     @GetMapping("/tasks")
-    public List<Task> returnAllTasks() {
+    public Page<Task> returnAllTasks(@RequestParam Optional<Integer> page, @RequestParam Optional<String> sortBy,@RequestParam Optional<String> sortDir) {
         LOGGER.info("A get all tasks  request initialized ");
         User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        List<Task> tasks = taskRepository.findAllByUser_Id(requestingUser.getId());
+        Page<Task> tasks = taskRepository.findAllByUser_Id(requestingUser.getId(),
+                PageRequest.of(page.orElse(0),5,Sort.Direction.fromString(sortDir.orElse("desc")), sortBy.orElse("id")));
         LOGGER.trace("retrieve all tasks ");
         return tasks;
     }
@@ -52,7 +57,7 @@ public class TaskController {
         User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (requestedUser.getId().longValue()==requestingUser.getId().longValue() && requestedUser.getPassword().equals(requestingUser.getPassword())) {
             LOGGER.trace("retrieve task with id "+ id );
-        return  task;}
+            return  task;}
         else {
             throw new AccessDeniedException("You are not allowed to access this page!");
         }
@@ -64,14 +69,14 @@ public class TaskController {
     Task createTask(@RequestBody Task task) {
         LOGGER.info("A create task request initialized ");
         User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        checkDate(task);
+        checkDate(task,false);
         Task newTask = taskRepository.save(task);
-           task.setUser(requestingUser);
-            //notice that we have to add the task to the user object and add the user object to the task so that jpa can create load the table correctly for us
-            requestingUser.addTask(task);
-            userRepository.save(requestingUser);
+        task.setUser(requestingUser);
+        //notice that we have to add the task to the user object and add the user object to the task so that jpa can create load the table correctly for us
+        requestingUser.addTask(task);
+        userRepository.save(requestingUser);
         LOGGER.trace("Creating new  task");
-            return newTask;
+        return newTask;
     }
 
 
@@ -86,7 +91,7 @@ public class TaskController {
         User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (requestedUser.getId().longValue()==requestingUser.getId().longValue() && requestedUser.getPassword().equals(requestingUser.getPassword())) {
 
-            checkDate(task);
+            checkDate(task,true);
             Task updatedTask = taskRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
             updatedTask.setDescription(editTask.getDescription());
             updatedTask.setCompleted(editTask.isCompleted());
@@ -100,14 +105,15 @@ public class TaskController {
 
     }
 
-    private void checkDate(Task task) {
+    private void checkDate(Task task,boolean editedTask) {
         Date startDateToCheck = task.getStartDate();
         Date endDateToCheck = task.getEndDate();
 
         User requestingUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Task> tasks = taskRepository.findAllByUser_Id(requestingUser.getId());
         for(Task testTask : tasks){
-            if(task.getId().longValue() == testTask.getId().longValue())
+
+            if(editedTask && task.getId().longValue() == testTask.getId().longValue())
                 continue;
             if (startDateToCheck.after(testTask.getStartDate()) && startDateToCheck.before(testTask.getEndDate()) )
                 throw new DateNotAllowedException();
