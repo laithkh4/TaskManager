@@ -104,7 +104,8 @@ public class TaskController {
         Date startDateToCheck=task.getStartDate();
         Date endDateToCheck=task.getEndDate();
 
-        List<Task> tasks=taskRepository.findAll();
+        User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        List<Task> tasks=taskRepository.findAllByUser_Id(requestingUser.getId());
         for(Task testTask:tasks){
             if (startDateToCheck.after(testTask.getStartDate()) && startDateToCheck.before(testTask.getEndDate()) )
                 throw new DateNotAllowedException();
