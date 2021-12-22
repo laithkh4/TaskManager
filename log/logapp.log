@@ -1,43 +1,150 @@
-2021-12-19 15:03:53.244  INFO 8956 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Starting TaskManagerApplication using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 8956 (C:\Users\LaithMo\TaskManager\target\classes started by LaithMo in C:\Users\LaithMo\TaskManager)
-2021-12-19 15:03:53.249  INFO 8956 --- [restartedMain] f.taskmanager.TaskManagerApplication     : No active profile set, falling back to default profiles: default
-2021-12-19 15:03:53.310  INFO 8956 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-12-19 15:03:53.311  INFO 8956 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-12-19 15:03:54.593  INFO 8956 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-12-19 15:03:54.669  INFO 8956 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63 ms. Found 3 JPA repository interfaces.
-2021-12-19 15:03:55.579  INFO 8956 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-12-19 15:03:55.592  INFO 8956 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-12-19 15:03:55.593  INFO 8956 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
-2021-12-19 15:03:55.711  INFO 8956 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-12-19 15:03:55.711  INFO 8956 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2399 ms
-2021-12-19 15:03:56.258  INFO 8956 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-12-19 15:03:56.317  INFO 8956 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
-2021-12-19 15:03:56.490  INFO 8956 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-12-19 15:03:56.600  INFO 8956 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-12-19 15:03:57.329  INFO 8956 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-12-19 15:03:57.364  INFO 8956 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2021-12-19 15:03:58.591  INFO 8956 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-12-19 15:03:58.600  INFO 8956 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-12-19 15:03:59.495  WARN 8956 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-12-19 15:04:00.248  INFO 8956 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5943fae0, org.springframework.security.web.context.SecurityContextPersistenceFilter@3e4dc744, org.springframework.security.web.header.HeaderWriterFilter@29042f91, org.springframework.security.web.authentication.logout.LogoutFilter@1dc02999, firsttask.taskmanager.Security.Filters.JwtRequestFilter@5399d278, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@56c603d9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2d36dab7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3e353836, org.springframework.security.web.session.SessionManagementFilter@162dcc4e, org.springframework.security.web.access.ExceptionTranslationFilter@75079be7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2ea0dc6a]
-2021-12-19 15:04:01.961  INFO 8956 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-12-19 15:04:01.974  INFO 8956 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2021-12-19 15:04:02.050  INFO 8956 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-12-19 15:04:02.069  INFO 8956 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Started TaskManagerApplication in 9.323 seconds (JVM running for 11.104)
-2021-12-19 15:04:02.428  INFO 8956 --- [RMI TCP Connection(1)-172.20.48.132] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-12-19 15:04:02.428  INFO 8956 --- [RMI TCP Connection(1)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-12-19 15:04:02.430  INFO 8956 --- [RMI TCP Connection(1)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-12-19 15:17:58.582  INFO 8956 --- [http-nio-8080-exec-1] f.taskmanager.Controller.UserController  : Authentication is starting ...
-2021-12-19 15:18:53.601  INFO 8956 --- [http-nio-8080-exec-3] f.taskmanager.Controller.TaskController  : A get all tasks  request initialized 
-2021-12-19 15:20:30.961 ERROR 8956 --- [http-nio-8080-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+2021-12-22 09:11:37.925  INFO 14004 --- [main] f.t.Controller.UserControllerTest        : Starting UserControllerTest using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 14004 (started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 09:11:37.934  INFO 14004 --- [main] f.t.Controller.UserControllerTest        : No active profile set, falling back to default profiles: default
+2021-12-22 09:11:40.451  INFO 14004 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@bd93bc3, org.springframework.security.web.context.SecurityContextPersistenceFilter@59e7564b, org.springframework.security.web.header.HeaderWriterFilter@7bf018dd, org.springframework.security.web.authentication.logout.LogoutFilter@e26a3df, firsttask.taskmanager.Security.Filters.JwtRequestFilter@773c2214, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1510b9a2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5514579e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2a136383, org.springframework.security.web.session.SessionManagementFilter@53d30d23, org.springframework.security.web.access.ExceptionTranslationFilter@5ebbde60, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@504497fa]
+2021-12-22 09:11:41.158  INFO 14004 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-12-22 09:11:41.158  INFO 14004 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-12-22 09:11:41.161  INFO 14004 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-12-22 09:11:41.234  INFO 14004 --- [main] f.t.Controller.UserControllerTest        : Started UserControllerTest in 3.863 seconds (JVM running for 5.804)
+2021-12-22 09:11:41.465  INFO 14004 --- [main] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 09:20:53.323  INFO 14072 --- [main] f.t.Controller.UserControllerTest        : Starting UserControllerTest using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 14072 (started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 09:20:53.325  INFO 14072 --- [main] f.t.Controller.UserControllerTest        : No active profile set, falling back to default profiles: default
+2021-12-22 09:20:55.998  INFO 14072 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2e3f324e, org.springframework.security.web.context.SecurityContextPersistenceFilter@3cc3f13e, org.springframework.security.web.header.HeaderWriterFilter@5ebbde60, org.springframework.security.web.authentication.logout.LogoutFilter@23b1aa9, firsttask.taskmanager.Security.Filters.JwtRequestFilter@601eb4af, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@44faa4f2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@307af381, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@46cf8c07, org.springframework.security.web.session.SessionManagementFilter@661e1399, org.springframework.security.web.access.ExceptionTranslationFilter@7ae590f6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4af7dd6a]
+2021-12-22 09:20:56.653  INFO 14072 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-12-22 09:20:56.654  INFO 14072 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-12-22 09:20:56.656  INFO 14072 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-12-22 09:20:56.707  INFO 14072 --- [main] f.t.Controller.UserControllerTest        : Started UserControllerTest in 4.067 seconds (JVM running for 5.648)
+2021-12-22 09:20:56.926  INFO 14072 --- [main] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 09:21:22.551  INFO 3748 --- [main] f.t.Controller.UserControllerTest        : Starting UserControllerTest using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 3748 (started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 09:21:22.552  INFO 3748 --- [main] f.t.Controller.UserControllerTest        : No active profile set, falling back to default profiles: default
+2021-12-22 09:21:25.334  INFO 3748 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3b218c74, org.springframework.security.web.context.SecurityContextPersistenceFilter@2a484710, org.springframework.security.web.header.HeaderWriterFilter@7ab63838, org.springframework.security.web.authentication.logout.LogoutFilter@8eb6f9a, firsttask.taskmanager.Security.Filters.JwtRequestFilter@22ead351, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@424f02b8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@44faa4f2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@ddffa6c, org.springframework.security.web.session.SessionManagementFilter@3f6c2763, org.springframework.security.web.access.ExceptionTranslationFilter@681de87f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@350ff014]
+2021-12-22 09:21:26.467  INFO 3748 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-12-22 09:21:26.479  INFO 3748 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-12-22 09:21:26.488  INFO 3748 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-12-22 09:21:26.546  INFO 3748 --- [main] f.t.Controller.UserControllerTest        : Started UserControllerTest in 4.556 seconds (JVM running for 6.116)
+2021-12-22 09:21:26.769  INFO 3748 --- [main] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 09:21:59.752  INFO 8820 --- [main] f.t.Controller.UserControllerTest        : Starting UserControllerTest using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 8820 (started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 09:21:59.753  INFO 8820 --- [main] f.t.Controller.UserControllerTest        : No active profile set, falling back to default profiles: default
+2021-12-22 09:22:02.158  INFO 8820 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5618fc1f, org.springframework.security.web.context.SecurityContextPersistenceFilter@4e974b9e, org.springframework.security.web.header.HeaderWriterFilter@410fc508, org.springframework.security.web.authentication.logout.LogoutFilter@3af236d0, firsttask.taskmanager.Security.Filters.JwtRequestFilter@6f731759, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2a04ab05, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@25c1f5ee, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@60b1ff3b, org.springframework.security.web.session.SessionManagementFilter@5d9d2119, org.springframework.security.web.access.ExceptionTranslationFilter@7159d601, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@72b2c5ed]
+2021-12-22 09:22:02.961  INFO 8820 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-12-22 09:22:02.962  INFO 8820 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-12-22 09:22:02.964  INFO 8820 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-12-22 09:22:03.023  INFO 8820 --- [main] f.t.Controller.UserControllerTest        : Started UserControllerTest in 3.796 seconds (JVM running for 5.387)
+2021-12-22 09:22:03.220  INFO 8820 --- [main] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 09:22:56.765  INFO 13052 --- [main] f.t.Controller.UserControllerTest        : Starting UserControllerTest using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 13052 (started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 09:22:56.766  INFO 13052 --- [main] f.t.Controller.UserControllerTest        : No active profile set, falling back to default profiles: default
+2021-12-22 09:22:59.179  INFO 13052 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@dc59ec2, org.springframework.security.web.context.SecurityContextPersistenceFilter@6793f752, org.springframework.security.web.header.HeaderWriterFilter@25c1f5ee, org.springframework.security.web.authentication.logout.LogoutFilter@7c4b5ceb, firsttask.taskmanager.Security.Filters.JwtRequestFilter@51cab489, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@482ba4b1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4bcdd11, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@375084c9, org.springframework.security.web.session.SessionManagementFilter@3cc3f13e, org.springframework.security.web.access.ExceptionTranslationFilter@61b838f2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@566c1e71]
+2021-12-22 09:22:59.903  INFO 13052 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-12-22 09:22:59.905  INFO 13052 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-12-22 09:22:59.907  INFO 13052 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-12-22 09:22:59.972  INFO 13052 --- [main] f.t.Controller.UserControllerTest        : Started UserControllerTest in 3.841 seconds (JVM running for 5.489)
+2021-12-22 09:23:00.170  INFO 13052 --- [main] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 09:26:53.067  INFO 13340 --- [main] f.t.Controller.UserControllerTest        : Starting UserControllerTest using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 13340 (started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 09:26:53.069  INFO 13340 --- [main] f.t.Controller.UserControllerTest        : No active profile set, falling back to default profiles: default
+2021-12-22 09:26:55.305  INFO 13340 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@60807fd9, org.springframework.security.web.context.SecurityContextPersistenceFilter@4bce62b, org.springframework.security.web.header.HeaderWriterFilter@38087342, org.springframework.security.web.authentication.logout.LogoutFilter@7f12094d, firsttask.taskmanager.Security.Filters.JwtRequestFilter@4b55ff0a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3f6c2763, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@661e1399, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6bcdd6e4, org.springframework.security.web.session.SessionManagementFilter@a056b26, org.springframework.security.web.access.ExceptionTranslationFilter@62e73ab6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3f0ce0d1]
+2021-12-22 09:26:55.996  INFO 13340 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-12-22 09:26:55.997  INFO 13340 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-12-22 09:26:55.999  INFO 13340 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-12-22 09:26:56.041  INFO 13340 --- [main] f.t.Controller.UserControllerTest        : Started UserControllerTest in 3.445 seconds (JVM running for 5.297)
+2021-12-22 09:26:56.283  INFO 13340 --- [main] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 09:28:20.784  INFO 11624 --- [main] f.t.Controller.UserControllerTest        : Starting UserControllerTest using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 11624 (started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 09:28:20.786  INFO 11624 --- [main] f.t.Controller.UserControllerTest        : No active profile set, falling back to default profiles: default
+2021-12-22 09:28:23.137  INFO 11624 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5618fc1f, org.springframework.security.web.context.SecurityContextPersistenceFilter@4e974b9e, org.springframework.security.web.header.HeaderWriterFilter@410fc508, org.springframework.security.web.authentication.logout.LogoutFilter@3af236d0, firsttask.taskmanager.Security.Filters.JwtRequestFilter@6f731759, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2a04ab05, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@25c1f5ee, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@60b1ff3b, org.springframework.security.web.session.SessionManagementFilter@5d9d2119, org.springframework.security.web.access.ExceptionTranslationFilter@7159d601, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@72b2c5ed]
+2021-12-22 09:28:23.974  INFO 11624 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-12-22 09:28:23.975  INFO 11624 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-12-22 09:28:23.977  INFO 11624 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-12-22 09:28:24.062  INFO 11624 --- [main] f.t.Controller.UserControllerTest        : Started UserControllerTest in 3.777 seconds (JVM running for 5.577)
+2021-12-22 09:28:24.283  INFO 11624 --- [main] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 09:28:49.005  INFO 10160 --- [main] f.t.Controller.UserControllerTest        : Starting UserControllerTest using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 10160 (started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 09:28:49.007  INFO 10160 --- [main] f.t.Controller.UserControllerTest        : No active profile set, falling back to default profiles: default
+2021-12-22 09:28:51.441  INFO 10160 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5844a2d1, org.springframework.security.web.context.SecurityContextPersistenceFilter@7ddeb27f, org.springframework.security.web.header.HeaderWriterFilter@26a4f9ed, org.springframework.security.web.authentication.logout.LogoutFilter@482ba4b1, firsttask.taskmanager.Security.Filters.JwtRequestFilter@1f78d415, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2eb1c615, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ab63838, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1201769d, org.springframework.security.web.session.SessionManagementFilter@5d7f8467, org.springframework.security.web.access.ExceptionTranslationFilter@11826398, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@611c3eae]
+2021-12-22 09:28:52.169  INFO 10160 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-12-22 09:28:52.170  INFO 10160 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-12-22 09:28:52.172  INFO 10160 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-12-22 09:28:52.271  INFO 10160 --- [main] f.t.Controller.UserControllerTest        : Started UserControllerTest in 3.782 seconds (JVM running for 5.474)
+2021-12-22 09:28:52.515  INFO 10160 --- [main] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 09:30:59.568  INFO 14216 --- [main] f.t.Controller.UserControllerTest        : Starting UserControllerTest using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 14216 (started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 09:30:59.570  INFO 14216 --- [main] f.t.Controller.UserControllerTest        : No active profile set, falling back to default profiles: default
+2021-12-22 09:31:01.792  INFO 14216 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6bcdd6e4, org.springframework.security.web.context.SecurityContextPersistenceFilter@7bf018dd, org.springframework.security.web.header.HeaderWriterFilter@681de87f, org.springframework.security.web.authentication.logout.LogoutFilter@589fb74d, firsttask.taskmanager.Security.Filters.JwtRequestFilter@46a795de, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c82031b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3ffd4b12, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1192c925, org.springframework.security.web.session.SessionManagementFilter@2a5abd3c, org.springframework.security.web.access.ExceptionTranslationFilter@5d7f8467, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@664db2ca]
+2021-12-22 09:31:02.489  INFO 14216 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-12-22 09:31:02.501  INFO 14216 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-12-22 09:31:02.504  INFO 14216 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-12-22 09:31:02.620  INFO 14216 --- [main] f.t.Controller.UserControllerTest        : Started UserControllerTest in 3.579 seconds (JVM running for 5.227)
+2021-12-22 09:31:02.874  INFO 14216 --- [main] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 09:32:19.421  INFO 2104 --- [main] f.t.Controller.UserControllerTest        : Starting UserControllerTest using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 2104 (started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 09:32:19.422  INFO 2104 --- [main] f.t.Controller.UserControllerTest        : No active profile set, falling back to default profiles: default
+2021-12-22 09:32:21.644  INFO 2104 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6b5c134e, org.springframework.security.web.context.SecurityContextPersistenceFilter@2a5abd3c, org.springframework.security.web.header.HeaderWriterFilter@7caf1e5, org.springframework.security.web.authentication.logout.LogoutFilter@935d3f9, firsttask.taskmanager.Security.Filters.JwtRequestFilter@599a9cb2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4bce62b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@274fdea6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@34d9df9f, org.springframework.security.web.session.SessionManagementFilter@61b838f2, org.springframework.security.web.access.ExceptionTranslationFilter@410fc508, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@56b1e527]
+2021-12-22 09:32:22.314  INFO 2104 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-12-22 09:32:22.315  INFO 2104 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-12-22 09:32:22.317  INFO 2104 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-12-22 09:32:22.388  INFO 2104 --- [main] f.t.Controller.UserControllerTest        : Started UserControllerTest in 3.464 seconds (JVM running for 5.088)
+2021-12-22 09:32:22.561  INFO 2104 --- [main] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 09:34:20.632  INFO 13224 --- [main] f.t.Controller.UserControllerTest        : Starting UserControllerTest using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 13224 (started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 09:34:20.633  INFO 13224 --- [main] f.t.Controller.UserControllerTest        : No active profile set, falling back to default profiles: default
+2021-12-22 09:34:23.064  INFO 13224 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6b5c134e, org.springframework.security.web.context.SecurityContextPersistenceFilter@2a5abd3c, org.springframework.security.web.header.HeaderWriterFilter@7caf1e5, org.springframework.security.web.authentication.logout.LogoutFilter@935d3f9, firsttask.taskmanager.Security.Filters.JwtRequestFilter@599a9cb2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4bce62b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@274fdea6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@34d9df9f, org.springframework.security.web.session.SessionManagementFilter@61b838f2, org.springframework.security.web.access.ExceptionTranslationFilter@410fc508, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@56b1e527]
+2021-12-22 09:34:23.780  INFO 13224 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-12-22 09:34:23.781  INFO 13224 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-12-22 09:34:23.784  INFO 13224 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2021-12-22 09:34:23.881  INFO 13224 --- [main] f.t.Controller.UserControllerTest        : Started UserControllerTest in 3.796 seconds (JVM running for 5.377)
+2021-12-22 09:34:24.126  INFO 13224 --- [main] f.taskmanager.Controller.UserController  : A create user request initialized 
+2021-12-22 09:34:24.311  INFO 13224 --- [main] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 09:35:18.714  INFO 6300 --- [main] f.t.Controller.UserControllerTest        : Starting UserControllerTest using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 6300 (started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 09:35:18.716  INFO 6300 --- [main] f.t.Controller.UserControllerTest        : No active profile set, falling back to default profiles: default
+2021-12-22 09:35:20.919  INFO 6300 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@42c54bad, org.springframework.security.web.context.SecurityContextPersistenceFilter@3ffd4b12, org.springframework.security.web.header.HeaderWriterFilter@370c7cc5, org.springframework.security.web.authentication.logout.LogoutFilter@2a8f8555, firsttask.taskmanager.Security.Filters.JwtRequestFilter@43d65a81, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3cc3f13e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1216eb3f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6bb4cc0e, org.springframework.security.web.session.SessionManagementFilter@274fdea6, org.springframework.security.web.access.ExceptionTranslationFilter@2674d4f6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3f866f50]
+2021-12-22 09:35:21.568  INFO 6300 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-12-22 09:35:21.568  INFO 6300 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-12-22 09:35:21.570  INFO 6300 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2021-12-22 09:35:21.637  INFO 6300 --- [main] f.t.Controller.UserControllerTest        : Started UserControllerTest in 3.419 seconds (JVM running for 5.004)
+2021-12-22 09:35:21.836  INFO 6300 --- [main] f.taskmanager.Controller.UserController  : A create user request initialized 
+2021-12-22 09:35:22.018  INFO 6300 --- [main] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 09:37:29.917  INFO 1648 --- [main] f.t.Controller.UserControllerTest        : Starting UserControllerTest using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 1648 (started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 09:37:29.918  INFO 1648 --- [main] f.t.Controller.UserControllerTest        : No active profile set, falling back to default profiles: default
+2021-12-22 09:37:32.125  INFO 1648 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@504497fa, org.springframework.security.web.context.SecurityContextPersistenceFilter@7ab63838, org.springframework.security.web.header.HeaderWriterFilter@63f9ddf9, org.springframework.security.web.authentication.logout.LogoutFilter@58c42c8c, firsttask.taskmanager.Security.Filters.JwtRequestFilter@412ebe64, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@61b838f2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@250967f1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5618fc1f, org.springframework.security.web.session.SessionManagementFilter@2674d4f6, org.springframework.security.web.access.ExceptionTranslationFilter@45287377, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@57b9389f]
+2021-12-22 09:37:32.814  INFO 1648 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-12-22 09:37:32.814  INFO 1648 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-12-22 09:37:32.815  INFO 1648 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-12-22 09:37:32.878  INFO 1648 --- [main] f.t.Controller.UserControllerTest        : Started UserControllerTest in 3.446 seconds (JVM running for 5.111)
+2021-12-22 09:37:33.110  INFO 1648 --- [main] f.taskmanager.Controller.UserController  : A create user request initialized 
+2021-12-22 09:37:33.258  INFO 1648 --- [main] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 09:38:00.021  INFO 10012 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Starting TaskManagerApplication using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 10012 (C:\Users\LaithMo\TaskManager\target\classes started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 09:38:00.023  INFO 10012 --- [restartedMain] f.taskmanager.TaskManagerApplication     : No active profile set, falling back to default profiles: default
+2021-12-22 09:38:00.075  INFO 10012 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-22 09:38:00.076  INFO 10012 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-22 09:38:01.113  INFO 10012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-22 09:38:01.175  INFO 10012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 3 JPA repository interfaces.
+2021-12-22 09:38:01.907  INFO 10012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-22 09:38:01.917  INFO 10012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-22 09:38:01.918  INFO 10012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-22 09:38:02.009  INFO 10012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-12-22 09:38:02.010  INFO 10012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1932 ms
+2021-12-22 09:38:02.464  INFO 10012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-22 09:38:02.524  INFO 10012 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2021-12-22 09:38:02.647  INFO 10012 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-22 09:38:02.750  INFO 10012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-22 09:38:03.151  INFO 10012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-22 09:38:03.172  INFO 10012 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-12-22 09:38:03.863  INFO 10012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-22 09:38:03.870  INFO 10012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-22 09:38:04.369  WARN 10012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-22 09:38:04.678  INFO 10012 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@b00f5e0, org.springframework.security.web.context.SecurityContextPersistenceFilter@e6a1708, org.springframework.security.web.header.HeaderWriterFilter@531172a0, org.springframework.security.web.authentication.logout.LogoutFilter@1577fbc, firsttask.taskmanager.Security.Filters.JwtRequestFilter@40a3b36, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@504c6eef, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2cfa8b97, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2471b1e9, org.springframework.security.web.session.SessionManagementFilter@56894130, org.springframework.security.web.access.ExceptionTranslationFilter@25268970, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4d17de1]
+2021-12-22 09:38:05.727  INFO 10012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-22 09:38:05.737  INFO 10012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2021-12-22 09:38:05.807  INFO 10012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-22 09:38:05.824  INFO 10012 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Started TaskManagerApplication in 6.206 seconds (JVM running for 7.281)
+2021-12-22 09:38:06.289  INFO 10012 --- [RMI TCP Connection(1)-172.20.48.132] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-22 09:38:06.289  INFO 10012 --- [RMI TCP Connection(1)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-22 09:38:06.291  INFO 10012 --- [RMI TCP Connection(1)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-12-22 09:38:16.373  INFO 10012 --- [http-nio-8080-exec-2] f.taskmanager.Controller.UserController  : A create user request initialized 
+2021-12-22 09:38:19.955  INFO 10012 --- [http-nio-8080-exec-3] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 09:38:44.902 ERROR 10012 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
 
-io.jsonwebtoken.ExpiredJwtException: JWT expired at 2021-12-17T02:13:30Z. Current time: 2021-12-19T15:20:30Z, a difference of 220020949 milliseconds.  Allowed clock skew: 0 milliseconds.
+io.jsonwebtoken.ExpiredJwtException: JWT expired at 2021-12-16T23:22:59Z. Current time: 2021-12-22T09:38:44Z, a difference of 468945888 milliseconds.  Allowed clock skew: 0 milliseconds.
 	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:385) ~[jjwt-0.9.1.jar:0.9.1]
 	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:481) ~[jjwt-0.9.1.jar:0.9.1]
 	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:541) ~[jjwt-0.9.1.jar:0.9.1]
 	at firsttask.taskmanager.Security.JWTSecurity.JwtUtil.extractAllClaims(JwtUtil.java:43) ~[classes/:na]
 	at firsttask.taskmanager.Security.JWTSecurity.JwtUtil.extractClaim(JwtUtil.java:39) ~[classes/:na]
 	at firsttask.taskmanager.Security.JWTSecurity.JwtUtil.extractUsername(JwtUtil.java:31) ~[classes/:na]
-	at firsttask.taskmanager.Security.Filters.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:38) ~[classes/:na]
+	at firsttask.taskmanager.Security.Filters.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:36) ~[classes/:na]
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.13.jar:5.3.13]
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.0.jar:5.6.0]
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.6.0.jar:5.6.0]
@@ -92,12 +199,133 @@ io.jsonwebtoken.ExpiredJwtException: JWT expired at 2021-12-17T02:13:30Z. Curren
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
 	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
 
-2021-12-19 15:20:46.719  INFO 8956 --- [http-nio-8080-exec-7] f.taskmanager.Controller.TaskController  : A create task request initialized 
-2021-12-19 15:20:46.738 ERROR 8956 --- [http-nio-8080-exec-7] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "java.lang.Long.longValue()" because the return value of "firsttask.taskmanager.domain.Task.getId()" is null] with root cause
+2021-12-22 09:39:53.407  INFO 10012 --- [http-nio-8080-exec-8] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 09:40:04.405  INFO 10012 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-22 09:40:04.410  INFO 10012 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-22 09:40:04.422  INFO 10012 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-22 09:40:31.442  INFO 8692 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Starting TaskManagerApplication using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 8692 (C:\Users\LaithMo\TaskManager\target\classes started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 09:40:31.443  INFO 8692 --- [restartedMain] f.taskmanager.TaskManagerApplication     : No active profile set, falling back to default profiles: default
+2021-12-22 09:40:31.497  INFO 8692 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-22 09:40:31.497  INFO 8692 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-22 09:40:32.436  INFO 8692 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-22 09:40:32.493  INFO 8692 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 3 JPA repository interfaces.
+2021-12-22 09:40:33.136  INFO 8692 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-22 09:40:33.143  INFO 8692 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-22 09:40:33.144  INFO 8692 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-22 09:40:33.225  INFO 8692 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-12-22 09:40:33.225  INFO 8692 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1727 ms
+2021-12-22 09:40:33.658  INFO 8692 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-22 09:40:33.702  INFO 8692 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2021-12-22 09:40:33.866  INFO 8692 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-22 09:40:33.950  INFO 8692 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-22 09:40:34.237  INFO 8692 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-22 09:40:34.255  INFO 8692 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-12-22 09:40:34.876  INFO 8692 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-22 09:40:34.883  INFO 8692 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-22 09:40:35.352  WARN 8692 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-22 09:40:35.654  INFO 8692 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6ced80b2, org.springframework.security.web.context.SecurityContextPersistenceFilter@58ed8be2, org.springframework.security.web.header.HeaderWriterFilter@2f871c6f, org.springframework.security.web.authentication.logout.LogoutFilter@6d1db19e, firsttask.taskmanager.Security.Filters.JwtRequestFilter@afd5451, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6240e0f3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7db017ff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@20554c8b, org.springframework.security.web.session.SessionManagementFilter@5f01cf6a, org.springframework.security.web.access.ExceptionTranslationFilter@5a2074e8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5833ac0d]
+2021-12-22 09:40:36.632  INFO 8692 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-22 09:40:36.641  INFO 8692 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2021-12-22 09:40:36.703  INFO 8692 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-22 09:40:36.720  INFO 8692 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Started TaskManagerApplication in 5.698 seconds (JVM running for 6.781)
+2021-12-22 09:40:36.838  INFO 8692 --- [RMI TCP Connection(2)-172.20.48.132] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-22 09:40:36.838  INFO 8692 --- [RMI TCP Connection(2)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-22 09:40:36.839  INFO 8692 --- [RMI TCP Connection(2)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-22 09:40:45.542  INFO 8692 --- [http-nio-8080-exec-1] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 09:41:36.372  INFO 6064 --- [main] f.t.Controller.UserControllerTest        : Starting UserControllerTest using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 6064 (started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 09:41:36.373  INFO 6064 --- [main] f.t.Controller.UserControllerTest        : No active profile set, falling back to default profiles: default
+2021-12-22 09:41:38.694  INFO 6064 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6bcdd6e4, org.springframework.security.web.context.SecurityContextPersistenceFilter@7bf018dd, org.springframework.security.web.header.HeaderWriterFilter@681de87f, org.springframework.security.web.authentication.logout.LogoutFilter@589fb74d, firsttask.taskmanager.Security.Filters.JwtRequestFilter@46a795de, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c82031b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3ffd4b12, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1192c925, org.springframework.security.web.session.SessionManagementFilter@2a5abd3c, org.springframework.security.web.access.ExceptionTranslationFilter@5d7f8467, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@664db2ca]
+2021-12-22 09:41:39.458  INFO 6064 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-12-22 09:41:39.459  INFO 6064 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-12-22 09:41:39.460  INFO 6064 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-12-22 09:41:39.543  INFO 6064 --- [main] f.t.Controller.UserControllerTest        : Started UserControllerTest in 3.723 seconds (JVM running for 5.584)
+2021-12-22 09:41:39.751  INFO 6064 --- [main] f.taskmanager.Controller.UserController  : A create user request initialized 
+2021-12-22 09:41:39.908  INFO 6064 --- [main] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 10:15:28.845  INFO 8692 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-22 10:15:28.848  INFO 8692 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-22 10:15:28.855  INFO 8692 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-22 10:17:17.281  INFO 2872 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Starting TaskManagerApplication using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 2872 (C:\Users\LaithMo\TaskManager\target\classes started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 10:17:17.281  INFO 2872 --- [restartedMain] f.taskmanager.TaskManagerApplication     : No active profile set, falling back to default profiles: default
+2021-12-22 10:17:17.337  INFO 2872 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-22 10:17:17.337  INFO 2872 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-22 10:17:18.313  INFO 2872 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-22 10:17:18.371  INFO 2872 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 3 JPA repository interfaces.
+2021-12-22 10:17:19.281  INFO 2872 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-22 10:17:19.290  INFO 2872 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-22 10:17:19.291  INFO 2872 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-22 10:17:19.384  INFO 2872 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-12-22 10:17:19.384  INFO 2872 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2046 ms
+2021-12-22 10:17:19.862  INFO 2872 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-22 10:17:19.908  INFO 2872 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2021-12-22 10:17:20.043  INFO 2872 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-22 10:17:20.128  INFO 2872 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-22 10:17:20.415  INFO 2872 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-22 10:17:20.432  INFO 2872 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-12-22 10:17:21.673  INFO 2872 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-22 10:17:21.682  INFO 2872 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-22 10:17:22.387  WARN 2872 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-22 10:17:22.715  INFO 2872 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@205226a8, org.springframework.security.web.context.SecurityContextPersistenceFilter@533b74c4, org.springframework.security.web.header.HeaderWriterFilter@45146f78, org.springframework.security.web.authentication.logout.LogoutFilter@670e6d9f, firsttask.taskmanager.Security.Filters.JwtRequestFilter@482a7d2b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@52cca19b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@580f208e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5d34b32d, org.springframework.security.web.session.SessionManagementFilter@505271f6, org.springframework.security.web.access.ExceptionTranslationFilter@6719a055, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3909cb98]
+2021-12-22 10:17:23.699  INFO 2872 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-22 10:17:23.708  INFO 2872 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2021-12-22 10:17:23.771  INFO 2872 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-22 10:17:23.788  INFO 2872 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Started TaskManagerApplication in 6.953 seconds (JVM running for 7.721)
+2021-12-22 10:17:23.973  INFO 2872 --- [RMI TCP Connection(8)-172.20.48.132] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-22 10:17:23.974  INFO 2872 --- [RMI TCP Connection(8)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-22 10:17:23.975  INFO 2872 --- [RMI TCP Connection(8)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-22 10:18:04.308  INFO 2872 --- [http-nio-8080-exec-2] f.taskmanager.Controller.UserController  : A create user request initialized 
+2021-12-22 10:18:04.502  WARN 2872 --- [http-nio-8080-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1062, SQLState: 23000
+2021-12-22 10:18:04.503 ERROR 2872 --- [http-nio-8080-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : Duplicate entry 'Laith@gmail.com' for key 'user.UK_ob8kqyqqgmefl0aco34akdtpe'
+2021-12-22 10:18:04.505  INFO 2872 --- [http-nio-8080-exec-2] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+2021-12-22 10:18:04.535 ERROR 2872 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [user.UK_ob8kqyqqgmefl0aco34akdtpe]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement] with root cause
 
-java.lang.NullPointerException: Cannot invoke "java.lang.Long.longValue()" because the return value of "firsttask.taskmanager.domain.Task.getId()" is null
-	at firsttask.taskmanager.Controller.TaskController.checkDate(TaskController.java:115) ~[classes/:na]
-	at firsttask.taskmanager.Controller.TaskController.createTask(TaskController.java:72) ~[classes/:na]
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'Laith@gmail.com' for key 'user.UK_ob8kqyqqgmefl0aco34akdtpe'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1098) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1046) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1371) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1031) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.engine.jdbc.batch.internal.NonBatchingBatch.addToBatch(NonBatchingBatch.java:46) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3375) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3908) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:107) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:604) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:478) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:721) ~[na:na]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:475) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:344) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:40) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1416) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:507) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3299) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2434) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:449) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$300(JdbcResourceLocalTransactionCoordinatorImpl.java:40) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743) ~[spring-tx-5.3.13.jar:5.3.13]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711) ~[spring-tx-5.3.13.jar:5.3.13]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:654) ~[spring-tx-5.3.13.jar:5.3.13]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:407) ~[spring-tx-5.3.13.jar:5.3.13]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.13.jar:5.3.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.13.jar:5.3.13]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.13.jar:5.3.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.13.jar:5.3.13]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174) ~[spring-data-jpa-2.6.0.jar:2.6.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.13.jar:5.3.13]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.13.jar:5.3.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.13.jar:5.3.13]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.13.jar:5.3.13]
+	at jdk.proxy4/jdk.proxy4.$Proxy131.save(Unknown Source) ~[na:na]
+	at firsttask.taskmanager.Logic.UserControllerLogic.createNewUser(UserControllerLogic.java:46) ~[classes/:na]
+	at firsttask.taskmanager.Controller.UserController.createNewUser(UserController.java:34) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
@@ -139,7 +367,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.Long.longValue()" becau
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.0.jar:5.6.0]
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.6.0.jar:5.6.0]
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.0.jar:5.6.0]
-	at firsttask.taskmanager.Security.Filters.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:53) ~[classes/:na]
+	at firsttask.taskmanager.Security.Filters.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:51) ~[classes/:na]
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.13.jar:5.3.13]
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.0.jar:5.6.0]
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.6.0.jar:5.6.0]
@@ -194,44 +422,43 @@ java.lang.NullPointerException: Cannot invoke "java.lang.Long.longValue()" becau
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
 	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
 
-2021-12-19 15:23:33.769  INFO 8956 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2021-12-19 15:23:33.772  INFO 8956 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-12-19 15:23:33.782  INFO 8956 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-12-19 15:24:08.003  INFO 13364 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Starting TaskManagerApplication using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 13364 (C:\Users\LaithMo\TaskManager\target\classes started by LaithMo in C:\Users\LaithMo\TaskManager)
-2021-12-19 15:24:08.004  INFO 13364 --- [restartedMain] f.taskmanager.TaskManagerApplication     : No active profile set, falling back to default profiles: default
-2021-12-19 15:24:08.066  INFO 13364 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-12-19 15:24:08.067  INFO 13364 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-12-19 15:24:09.044  INFO 13364 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-12-19 15:24:09.101  INFO 13364 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 3 JPA repository interfaces.
-2021-12-19 15:24:09.771  INFO 13364 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-12-19 15:24:09.778  INFO 13364 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-12-19 15:24:09.779  INFO 13364 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
-2021-12-19 15:24:09.858  INFO 13364 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-12-19 15:24:09.859  INFO 13364 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1791 ms
-2021-12-19 15:24:10.303  INFO 13364 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-12-19 15:24:10.345  INFO 13364 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
-2021-12-19 15:24:10.465  INFO 13364 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-12-19 15:24:10.550  INFO 13364 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-12-19 15:24:10.842  INFO 13364 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-12-19 15:24:10.860  INFO 13364 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2021-12-19 15:24:11.541  INFO 13364 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-12-19 15:24:11.550  INFO 13364 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-12-19 15:24:12.034  WARN 13364 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-12-19 15:24:12.356  INFO 13364 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5737bc73, org.springframework.security.web.context.SecurityContextPersistenceFilter@426238eb, org.springframework.security.web.header.HeaderWriterFilter@7ba4482a, org.springframework.security.web.authentication.logout.LogoutFilter@68868b2e, firsttask.taskmanager.Security.Filters.JwtRequestFilter@473759a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@76bfc3d0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2ed45552, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@166b91ce, org.springframework.security.web.session.SessionManagementFilter@38cf3ae3, org.springframework.security.web.access.ExceptionTranslationFilter@559438e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@54bac4e5]
-2021-12-19 15:24:13.401  INFO 13364 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-12-19 15:24:13.410  INFO 13364 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2021-12-19 15:24:13.475  INFO 13364 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-12-19 15:24:13.493  INFO 13364 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Started TaskManagerApplication in 6.012 seconds (JVM running for 7.058)
-2021-12-19 15:24:13.867  INFO 13364 --- [RMI TCP Connection(3)-172.20.48.132] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-12-19 15:24:13.867  INFO 13364 --- [RMI TCP Connection(3)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-12-19 15:24:13.869  INFO 13364 --- [RMI TCP Connection(3)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-12-19 15:24:26.008  INFO 13364 --- [http-nio-8080-exec-2] f.taskmanager.Controller.UserController  : Authentication is starting ...
-2021-12-19 15:24:50.010  INFO 13364 --- [http-nio-8080-exec-3] f.taskmanager.Controller.TaskController  : A create task request initialized 
-2021-12-19 15:24:50.035 ERROR 13364 --- [http-nio-8080-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is firsttask.taskmanager.Exceptions.DateNotAllowedException: There another task between this time, Please check and try again!] with root cause
+2021-12-22 10:18:22.565  INFO 2872 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-22 10:18:22.568  INFO 2872 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-22 10:18:22.575  INFO 2872 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-22 10:27:07.226  INFO 4736 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Starting TaskManagerApplication using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 4736 (C:\Users\LaithMo\TaskManager\target\classes started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 10:27:07.227  INFO 4736 --- [restartedMain] f.taskmanager.TaskManagerApplication     : No active profile set, falling back to default profiles: default
+2021-12-22 10:27:07.271  INFO 4736 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-22 10:27:07.271  INFO 4736 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-22 10:27:08.249  INFO 4736 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-22 10:27:08.305  INFO 4736 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 3 JPA repository interfaces.
+2021-12-22 10:27:08.955  INFO 4736 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-22 10:27:08.962  INFO 4736 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-22 10:27:08.963  INFO 4736 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-22 10:27:09.045  INFO 4736 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-12-22 10:27:09.045  INFO 4736 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1774 ms
+2021-12-22 10:27:09.461  INFO 4736 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-22 10:27:09.501  INFO 4736 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2021-12-22 10:27:09.614  INFO 4736 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-22 10:27:09.695  INFO 4736 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-22 10:27:09.981  INFO 4736 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-22 10:27:09.999  INFO 4736 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-12-22 10:27:11.164  INFO 4736 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-22 10:27:11.172  INFO 4736 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-22 10:27:11.661  WARN 4736 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-22 10:27:11.977  INFO 4736 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4ac95cc8, org.springframework.security.web.context.SecurityContextPersistenceFilter@cec533d, org.springframework.security.web.header.HeaderWriterFilter@605fb506, org.springframework.security.web.authentication.logout.LogoutFilter@3c76db00, firsttask.taskmanager.Security.Filters.JwtRequestFilter@6ef521c0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1debf4da, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@626a4b32, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@69858c9e, org.springframework.security.web.session.SessionManagementFilter@23d11d40, org.springframework.security.web.access.ExceptionTranslationFilter@789b54dc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6719a055]
+2021-12-22 10:27:13.037  INFO 4736 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-22 10:27:13.046  INFO 4736 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2021-12-22 10:27:13.110  INFO 4736 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-22 10:27:13.127  INFO 4736 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Started TaskManagerApplication in 6.333 seconds (JVM running for 7.146)
+2021-12-22 10:27:13.424  INFO 4736 --- [RMI TCP Connection(1)-172.20.48.132] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-22 10:27:13.424  INFO 4736 --- [RMI TCP Connection(1)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-22 10:27:13.426  INFO 4736 --- [RMI TCP Connection(1)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-12-22 10:27:18.465  INFO 4736 --- [http-nio-8080-exec-1] f.taskmanager.Controller.UserController  : A create user request initialized 
+2021-12-22 10:27:18.599 ERROR 4736 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is firsttask.taskmanager.Exceptions.UserAlreadyExistException: This email is already registered please try with a different email!] with root cause
 
-firsttask.taskmanager.Exceptions.DateNotAllowedException: There another task between this time, Please check and try again!
-	at firsttask.taskmanager.Controller.TaskController.checkDate(TaskController.java:119) ~[classes/:na]
-	at firsttask.taskmanager.Controller.TaskController.createTask(TaskController.java:72) ~[classes/:na]
+firsttask.taskmanager.Exceptions.UserAlreadyExistException: This email is already registered please try with a different email!
+	at firsttask.taskmanager.Logic.UserControllerLogic.createNewUser(UserControllerLogic.java:52) ~[classes/:na]
+	at firsttask.taskmanager.Controller.UserController.createNewUser(UserController.java:34) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
@@ -273,7 +500,7 @@ firsttask.taskmanager.Exceptions.DateNotAllowedException: There another task bet
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.0.jar:5.6.0]
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.6.0.jar:5.6.0]
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.0.jar:5.6.0]
-	at firsttask.taskmanager.Security.Filters.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:53) ~[classes/:na]
+	at firsttask.taskmanager.Security.Filters.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:51) ~[classes/:na]
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.13.jar:5.3.13]
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.0.jar:5.6.0]
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.6.0.jar:5.6.0]
@@ -328,30 +555,43 @@ firsttask.taskmanager.Exceptions.DateNotAllowedException: There another task bet
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
 	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
 
-2021-12-19 15:25:46.201  WARN 13364 --- [http-nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null)); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null))<LF> at [Source: (PushbackInputStream); line: 4, column: 17] (through reference chain: firsttask.taskmanager.domain.Task["startDate"])]
-2021-12-19 15:26:14.598  WARN 13364 --- [http-nio-8080-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.Date` from String "2022-1-01": not a valid representation (error: Failed to parse Date value '2022-1-01': Cannot parse date "2022-1-01": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null)); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String "2022-1-01": not a valid representation (error: Failed to parse Date value '2022-1-01': Cannot parse date "2022-1-01": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null))<LF> at [Source: (PushbackInputStream); line: 4, column: 17] (through reference chain: firsttask.taskmanager.domain.Task["startDate"])]
-2021-12-19 15:26:49.143  WARN 13364 --- [http-nio-8080-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null)); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null))<LF> at [Source: (PushbackInputStream); line: 4, column: 17] (through reference chain: firsttask.taskmanager.domain.Task["startDate"])]
-2021-12-19 15:26:50.392  WARN 13364 --- [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null)); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null))<LF> at [Source: (PushbackInputStream); line: 4, column: 17] (through reference chain: firsttask.taskmanager.domain.Task["startDate"])]
-2021-12-19 15:26:50.846  WARN 13364 --- [http-nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null)); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null))<LF> at [Source: (PushbackInputStream); line: 4, column: 17] (through reference chain: firsttask.taskmanager.domain.Task["startDate"])]
-2021-12-19 15:26:51.368  WARN 13364 --- [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null)); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null))<LF> at [Source: (PushbackInputStream); line: 4, column: 17] (through reference chain: firsttask.taskmanager.domain.Task["startDate"])]
-2021-12-19 15:26:52.390  WARN 13364 --- [http-nio-8080-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null)); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null))<LF> at [Source: (PushbackInputStream); line: 4, column: 17] (through reference chain: firsttask.taskmanager.domain.Task["startDate"])]
-2021-12-19 15:26:52.796  WARN 13364 --- [http-nio-8080-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null)); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null))<LF> at [Source: (PushbackInputStream); line: 4, column: 17] (through reference chain: firsttask.taskmanager.domain.Task["startDate"])]
-2021-12-19 15:26:53.266  WARN 13364 --- [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null)); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null))<LF> at [Source: (PushbackInputStream); line: 4, column: 17] (through reference chain: firsttask.taskmanager.domain.Task["startDate"])]
-2021-12-19 15:26:53.656  WARN 13364 --- [http-nio-8080-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null)); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null))<LF> at [Source: (PushbackInputStream); line: 4, column: 17] (through reference chain: firsttask.taskmanager.domain.Task["startDate"])]
-2021-12-19 15:26:54.061  WARN 13364 --- [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null)); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null))<LF> at [Source: (PushbackInputStream); line: 4, column: 17] (through reference chain: firsttask.taskmanager.domain.Task["startDate"])]
-2021-12-19 15:26:54.456  WARN 13364 --- [http-nio-8080-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null)); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null))<LF> at [Source: (PushbackInputStream); line: 4, column: 17] (through reference chain: firsttask.taskmanager.domain.Task["startDate"])]
-2021-12-19 15:26:55.045  WARN 13364 --- [http-nio-8080-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null)); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null))<LF> at [Source: (PushbackInputStream); line: 4, column: 17] (through reference chain: firsttask.taskmanager.domain.Task["startDate"])]
-2021-12-19 15:26:55.457  WARN 13364 --- [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null)); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null))<LF> at [Source: (PushbackInputStream); line: 4, column: 17] (through reference chain: firsttask.taskmanager.domain.Task["startDate"])]
-2021-12-19 15:26:55.927  WARN 13364 --- [http-nio-8080-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null)); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null))<LF> at [Source: (PushbackInputStream); line: 4, column: 17] (through reference chain: firsttask.taskmanager.domain.Task["startDate"])]
-2021-12-19 15:26:58.555  WARN 13364 --- [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null)); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null))<LF> at [Source: (PushbackInputStream); line: 4, column: 17] (through reference chain: firsttask.taskmanager.domain.Task["startDate"])]
-2021-12-19 15:27:32.378  WARN 13364 --- [http-nio-8080-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null)); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String "2022-1-1": not a valid representation (error: Failed to parse Date value '2022-1-1': Cannot parse date "2022-1-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null))<LF> at [Source: (PushbackInputStream); line: 4, column: 17] (through reference chain: firsttask.taskmanager.domain.Task["startDate"])]
-2021-12-19 15:29:38.047  WARN 13364 --- [http-nio-8080-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.Date` from String "2022-2-1": not a valid representation (error: Failed to parse Date value '2022-2-1': Cannot parse date "2022-2-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null)); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String "2022-2-1": not a valid representation (error: Failed to parse Date value '2022-2-1': Cannot parse date "2022-2-1": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null))<LF> at [Source: (PushbackInputStream); line: 4, column: 17] (through reference chain: firsttask.taskmanager.domain.Task["startDate"])]
-2021-12-19 15:29:48.692  INFO 13364 --- [http-nio-8080-exec-1] f.taskmanager.Controller.TaskController  : A create task request initialized 
-2021-12-19 15:29:48.697 ERROR 13364 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is firsttask.taskmanager.Exceptions.DateNotAllowedException: There another task between this time, Please check and try again!] with root cause
+2021-12-22 10:28:06.436  INFO 4736 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-22 10:28:06.439  INFO 4736 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-22 10:28:06.450  INFO 4736 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-22 10:28:43.832  INFO 11020 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Starting TaskManagerApplication using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 11020 (C:\Users\LaithMo\TaskManager\target\classes started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 10:28:43.833  INFO 11020 --- [restartedMain] f.taskmanager.TaskManagerApplication     : No active profile set, falling back to default profiles: default
+2021-12-22 10:28:43.886  INFO 11020 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-22 10:28:43.886  INFO 11020 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-22 10:28:44.857  INFO 11020 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-22 10:28:44.918  INFO 11020 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 3 JPA repository interfaces.
+2021-12-22 10:28:45.603  INFO 11020 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-22 10:28:45.610  INFO 11020 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-22 10:28:45.611  INFO 11020 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-22 10:28:45.690  INFO 11020 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-12-22 10:28:45.690  INFO 11020 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1803 ms
+2021-12-22 10:28:46.109  INFO 11020 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-22 10:28:46.189  INFO 11020 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2021-12-22 10:28:46.341  INFO 11020 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-22 10:28:46.426  INFO 11020 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-22 10:28:46.728  INFO 11020 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-22 10:28:46.747  INFO 11020 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-12-22 10:28:47.777  INFO 11020 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-22 10:28:47.785  INFO 11020 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-22 10:28:48.279  WARN 11020 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-22 10:28:48.580  INFO 11020 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2c524f94, org.springframework.security.web.context.SecurityContextPersistenceFilter@3e474dd5, org.springframework.security.web.header.HeaderWriterFilter@40ac8b15, org.springframework.security.web.authentication.logout.LogoutFilter@7f0b466c, firsttask.taskmanager.Security.Filters.JwtRequestFilter@4d8c2d26, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7a1cef02, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@15d736b1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@442e24ed, org.springframework.security.web.session.SessionManagementFilter@585cb802, org.springframework.security.web.access.ExceptionTranslationFilter@5b8408e6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2b20fe15]
+2021-12-22 10:28:49.561  INFO 11020 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-22 10:28:49.570  INFO 11020 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2021-12-22 10:28:49.632  INFO 11020 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-22 10:28:49.650  INFO 11020 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Started TaskManagerApplication in 6.251 seconds (JVM running for 7.049)
+2021-12-22 10:28:49.932  INFO 11020 --- [RMI TCP Connection(1)-172.20.48.132] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-22 10:28:49.932  INFO 11020 --- [RMI TCP Connection(1)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-22 10:28:49.934  INFO 11020 --- [RMI TCP Connection(1)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-22 10:29:01.108  INFO 11020 --- [http-nio-8080-exec-2] f.taskmanager.Controller.UserController  : A create user request initialized 
+2021-12-22 10:29:01.258 ERROR 11020 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is firsttask.taskmanager.Exceptions.UserAlreadyExistException: This email is already registered please try with a different email!] with root cause
 
-firsttask.taskmanager.Exceptions.DateNotAllowedException: There another task between this time, Please check and try again!
-	at firsttask.taskmanager.Controller.TaskController.checkDate(TaskController.java:123) ~[classes/:na]
-	at firsttask.taskmanager.Controller.TaskController.createTask(TaskController.java:72) ~[classes/:na]
+firsttask.taskmanager.Exceptions.UserAlreadyExistException: This email is already registered please try with a different email!
+	at firsttask.taskmanager.Logic.UserControllerLogic.createNewUser(UserControllerLogic.java:52) ~[classes/:na]
+	at firsttask.taskmanager.Controller.UserController.createNewUser(UserController.java:34) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
@@ -393,7 +633,7 @@ firsttask.taskmanager.Exceptions.DateNotAllowedException: There another task bet
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.0.jar:5.6.0]
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.6.0.jar:5.6.0]
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.0.jar:5.6.0]
-	at firsttask.taskmanager.Security.Filters.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:53) ~[classes/:na]
+	at firsttask.taskmanager.Security.Filters.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:51) ~[classes/:na]
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.13.jar:5.3.13]
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.0.jar:5.6.0]
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.6.0.jar:5.6.0]
@@ -448,12 +688,43 @@ firsttask.taskmanager.Exceptions.DateNotAllowedException: There another task bet
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
 	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
 
-2021-12-19 15:30:12.822  INFO 13364 --- [http-nio-8080-exec-2] f.taskmanager.Controller.TaskController  : A create task request initialized 
-2021-12-19 15:30:12.829 ERROR 13364 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is firsttask.taskmanager.Exceptions.DateNotAllowedException: There another task between this time, Please check and try again!] with root cause
+2021-12-22 10:29:20.149  INFO 11020 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-22 10:29:20.152  INFO 11020 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-22 10:29:20.160  INFO 11020 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-22 10:29:28.705  INFO 13844 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Starting TaskManagerApplication using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 13844 (C:\Users\LaithMo\TaskManager\target\classes started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 10:29:28.706  INFO 13844 --- [restartedMain] f.taskmanager.TaskManagerApplication     : No active profile set, falling back to default profiles: default
+2021-12-22 10:29:28.751  INFO 13844 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-22 10:29:28.751  INFO 13844 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-22 10:29:30.505  INFO 13844 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-22 10:29:30.582  INFO 13844 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 3 JPA repository interfaces.
+2021-12-22 10:29:31.318  INFO 13844 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-22 10:29:31.325  INFO 13844 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-22 10:29:31.326  INFO 13844 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-22 10:29:31.424  INFO 13844 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-12-22 10:29:31.425  INFO 13844 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2674 ms
+2021-12-22 10:29:31.836  INFO 13844 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-22 10:29:31.878  INFO 13844 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2021-12-22 10:29:31.991  INFO 13844 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-22 10:29:32.071  INFO 13844 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-22 10:29:32.355  INFO 13844 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-22 10:29:32.372  INFO 13844 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-12-22 10:29:33.341  INFO 13844 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-22 10:29:33.348  INFO 13844 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-22 10:29:33.836  WARN 13844 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-22 10:29:34.144  INFO 13844 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3c42ff95, org.springframework.security.web.context.SecurityContextPersistenceFilter@5ac1b86c, org.springframework.security.web.header.HeaderWriterFilter@7dc257a4, org.springframework.security.web.authentication.logout.LogoutFilter@118e5085, firsttask.taskmanager.Security.Filters.JwtRequestFilter@593107ad, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@234c350c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@b822a79, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a9ca041, org.springframework.security.web.session.SessionManagementFilter@46abd326, org.springframework.security.web.access.ExceptionTranslationFilter@6875ac28, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4ab5b507]
+2021-12-22 10:29:35.123  INFO 13844 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-22 10:29:35.133  INFO 13844 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2021-12-22 10:29:35.201  INFO 13844 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-22 10:29:35.217  INFO 13844 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Started TaskManagerApplication in 6.981 seconds (JVM running for 7.95)
+2021-12-22 10:29:35.528  INFO 13844 --- [RMI TCP Connection(3)-172.20.48.132] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-22 10:29:35.529  INFO 13844 --- [RMI TCP Connection(3)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-22 10:29:35.530  INFO 13844 --- [RMI TCP Connection(3)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-22 10:30:12.596  INFO 13844 --- [http-nio-8080-exec-1] f.taskmanager.Controller.UserController  : A create user request initialized 
+2021-12-22 10:30:12.749 ERROR 13844 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is firsttask.taskmanager.Exceptions.UserAlreadyExistException: This email is already registered please try with a different email!] with root cause
 
-firsttask.taskmanager.Exceptions.DateNotAllowedException: There another task between this time, Please check and try again!
-	at firsttask.taskmanager.Controller.TaskController.checkDate(TaskController.java:123) ~[classes/:na]
-	at firsttask.taskmanager.Controller.TaskController.createTask(TaskController.java:72) ~[classes/:na]
+firsttask.taskmanager.Exceptions.UserAlreadyExistException: This email is already registered please try with a different email!
+	at firsttask.taskmanager.Logic.UserControllerLogic.createNewUser(UserControllerLogic.java:53) ~[classes/:na]
+	at firsttask.taskmanager.Controller.UserController.createNewUser(UserController.java:34) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
@@ -495,7 +766,7 @@ firsttask.taskmanager.Exceptions.DateNotAllowedException: There another task bet
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.0.jar:5.6.0]
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.6.0.jar:5.6.0]
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.0.jar:5.6.0]
-	at firsttask.taskmanager.Security.Filters.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:53) ~[classes/:na]
+	at firsttask.taskmanager.Security.Filters.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:51) ~[classes/:na]
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.13.jar:5.3.13]
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.0.jar:5.6.0]
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.6.0.jar:5.6.0]
@@ -550,15 +821,95 @@ firsttask.taskmanager.Exceptions.DateNotAllowedException: There another task bet
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
 	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
 
-2021-12-19 15:30:22.395  INFO 13364 --- [http-nio-8080-exec-5] f.taskmanager.Controller.TaskController  : A create task request initialized 
-2021-12-19 15:31:09.678  WARN 13364 --- [http-nio-8080-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.Date` from String "2022-1-03": not a valid representation (error: Failed to parse Date value '2022-1-03': Cannot parse date "2022-1-03": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null)); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String "2022-1-03": not a valid representation (error: Failed to parse Date value '2022-1-03': Cannot parse date "2022-1-03": while it seems to fit format 'yyyy-MM-dd', parsing fails (leniency? null))<LF> at [Source: (PushbackInputStream); line: 5, column: 15] (through reference chain: firsttask.taskmanager.domain.Task["endDate"])]
-2021-12-19 15:31:16.072  INFO 13364 --- [http-nio-8080-exec-8] f.taskmanager.Controller.TaskController  : A create task request initialized 
-2021-12-19 15:31:23.707  INFO 13364 --- [http-nio-8080-exec-9] f.taskmanager.Controller.TaskController  : A create task request initialized 
-2021-12-19 15:31:23.712 ERROR 13364 --- [http-nio-8080-exec-9] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is firsttask.taskmanager.Exceptions.DateNotAllowedException: There another task between this time, Please check and try again!] with root cause
+2021-12-22 10:30:48.013  INFO 13844 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-22 10:30:48.016  INFO 13844 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-22 10:30:48.025  INFO 13844 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-22 10:30:54.275  INFO 4572 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Starting TaskManagerApplication using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 4572 (C:\Users\LaithMo\TaskManager\target\classes started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 10:30:54.291  INFO 4572 --- [restartedMain] f.taskmanager.TaskManagerApplication     : No active profile set, falling back to default profiles: default
+2021-12-22 10:30:54.339  INFO 4572 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-22 10:30:54.339  INFO 4572 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-22 10:30:55.277  INFO 4572 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-22 10:30:55.332  INFO 4572 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 3 JPA repository interfaces.
+2021-12-22 10:30:55.977  INFO 4572 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-22 10:30:55.984  INFO 4572 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-22 10:30:55.985  INFO 4572 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-22 10:30:56.063  INFO 4572 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-12-22 10:30:56.064  INFO 4572 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1724 ms
+2021-12-22 10:30:56.494  INFO 4572 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-22 10:30:56.535  INFO 4572 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2021-12-22 10:30:56.648  INFO 4572 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-22 10:30:56.733  INFO 4572 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-22 10:30:57.026  INFO 4572 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-22 10:30:57.043  INFO 4572 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-12-22 10:30:58.021  INFO 4572 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-22 10:30:58.030  INFO 4572 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-22 10:30:58.653  WARN 4572 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-22 10:30:58.975  INFO 4572 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1688893, org.springframework.security.web.context.SecurityContextPersistenceFilter@2edfcc00, org.springframework.security.web.header.HeaderWriterFilter@47c41ba7, org.springframework.security.web.authentication.logout.LogoutFilter@16e06320, firsttask.taskmanager.Security.Filters.JwtRequestFilter@239051e2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3a45a777, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@57d53578, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6dad1523, org.springframework.security.web.session.SessionManagementFilter@16b349f3, org.springframework.security.web.access.ExceptionTranslationFilter@7064445e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4e593e2b]
+2021-12-22 10:31:00.012  INFO 4572 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-22 10:31:00.023  INFO 4572 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2021-12-22 10:31:00.089  INFO 4572 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-22 10:31:00.106  INFO 4572 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Started TaskManagerApplication in 6.285 seconds (JVM running for 7.546)
+2021-12-22 10:31:00.336  INFO 4572 --- [RMI TCP Connection(3)-172.20.48.132] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-22 10:31:00.336  INFO 4572 --- [RMI TCP Connection(3)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-22 10:31:00.338  INFO 4572 --- [RMI TCP Connection(3)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-12-22 10:31:06.920  INFO 4572 --- [http-nio-8080-exec-2] f.taskmanager.Controller.UserController  : A create user request initialized 
+2021-12-22 10:32:03.191  INFO 4572 --- [http-nio-8080-exec-3] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 10:32:43.113  INFO 4572 --- [http-nio-8080-exec-4] f.taskmanager.Controller.UserController  : A get user request initialized 
+2021-12-22 10:34:03.391  INFO 4572 --- [http-nio-8080-exec-6] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 10:35:13.598  INFO 4572 --- [http-nio-8080-exec-8] f.taskmanager.Controller.UserController  : A Delete user request initialized 
+2021-12-22 10:35:13.632  WARN 4572 --- [http-nio-8080-exec-8] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1451, SQLState: 23000
+2021-12-22 10:35:13.632 ERROR 4572 --- [http-nio-8080-exec-8] o.h.engine.jdbc.spi.SqlExceptionHelper   : Cannot delete or update a parent row: a foreign key constraint fails (`taskmanager`.`tokens`, CONSTRAINT `FKgh73xiagbl0no2bm4i7q29isu` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`))
+2021-12-22 10:35:13.634  INFO 4572 --- [http-nio-8080-exec-8] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+2021-12-22 10:35:13.660 ERROR 4572 --- [http-nio-8080-exec-8] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement] with root cause
 
-firsttask.taskmanager.Exceptions.DateNotAllowedException: There another task between this time, Please check and try again!
-	at firsttask.taskmanager.Controller.TaskController.checkDate(TaskController.java:123) ~[classes/:na]
-	at firsttask.taskmanager.Controller.TaskController.createTask(TaskController.java:72) ~[classes/:na]
+java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`taskmanager`.`tokens`, CONSTRAINT `FKgh73xiagbl0no2bm4i7q29isu` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`))
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1098) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1046) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1371) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1031) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.engine.jdbc.batch.internal.NonBatchingBatch.addToBatch(NonBatchingBatch.java:46) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.delete(AbstractEntityPersister.java:3698) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.delete(AbstractEntityPersister.java:3958) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.action.internal.EntityDeleteAction.execute(EntityDeleteAction.java:123) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:604) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:478) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:721) ~[na:na]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:475) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:344) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:40) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1416) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:507) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3299) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2434) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:449) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$300(JdbcResourceLocalTransactionCoordinatorImpl.java:40) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101) ~[hibernate-core-5.6.1.Final.jar:5.6.1.Final]
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562) ~[spring-orm-5.3.13.jar:5.3.13]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743) ~[spring-tx-5.3.13.jar:5.3.13]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711) ~[spring-tx-5.3.13.jar:5.3.13]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:654) ~[spring-tx-5.3.13.jar:5.3.13]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:407) ~[spring-tx-5.3.13.jar:5.3.13]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.13.jar:5.3.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.13.jar:5.3.13]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.13.jar:5.3.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.13.jar:5.3.13]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174) ~[spring-data-jpa-2.6.0.jar:2.6.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.13.jar:5.3.13]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.13.jar:5.3.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.13.jar:5.3.13]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.13.jar:5.3.13]
+	at jdk.proxy4/jdk.proxy4.$Proxy131.deleteById(Unknown Source) ~[na:na]
+	at firsttask.taskmanager.Logic.UserControllerLogic.deleteUser(UserControllerLogic.java:102) ~[classes/:na]
+	at firsttask.taskmanager.Controller.UserController.deleteUser(UserController.java:71) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
@@ -572,8 +923,8 @@ firsttask.taskmanager.Exceptions.DateNotAllowedException: There another task bet
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.13.jar:5.3.13]
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.13.jar:5.3.13]
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.13.jar:5.3.13]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.13.jar:5.3.13]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:665) ~[javaee-api-8.0.1.jar:na]
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:931) ~[spring-webmvc-5.3.13.jar:5.3.13]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:671) ~[javaee-api-8.0.1.jar:na]
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.13.jar:5.3.13]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:750) ~[javaee-api-8.0.1.jar:na]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
@@ -600,7 +951,7 @@ firsttask.taskmanager.Exceptions.DateNotAllowedException: There another task bet
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.0.jar:5.6.0]
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.6.0.jar:5.6.0]
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.0.jar:5.6.0]
-	at firsttask.taskmanager.Security.Filters.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:53) ~[classes/:na]
+	at firsttask.taskmanager.Security.Filters.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:51) ~[classes/:na]
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.13.jar:5.3.13]
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.0.jar:5.6.0]
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.6.0.jar:5.6.0]
@@ -655,15 +1006,134 @@ firsttask.taskmanager.Exceptions.DateNotAllowedException: There another task bet
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
 	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
 
-2021-12-19 15:31:33.411  INFO 13364 --- [http-nio-8080-exec-1] f.taskmanager.Controller.TaskController  : A create task request initialized 
-2021-12-19 15:31:50.454  INFO 13364 --- [http-nio-8080-exec-3] f.taskmanager.Controller.TaskController  : A create task request initialized 
-2021-12-19 15:32:11.180  INFO 13364 --- [http-nio-8080-exec-2] f.taskmanager.Controller.TaskController  : A create task request initialized 
-2021-12-19 15:32:38.191  INFO 13364 --- [http-nio-8080-exec-4] f.taskmanager.Controller.TaskController  : A create task request initialized 
-2021-12-19 15:32:58.997  INFO 13364 --- [http-nio-8080-exec-5] f.taskmanager.Controller.TaskController  : A get all tasks  request initialized 
-2021-12-19 15:33:15.067  INFO 13364 --- [http-nio-8080-exec-6] f.taskmanager.Controller.TaskController  : A get all tasks  request initialized 
-2021-12-19 15:33:29.944  INFO 13364 --- [http-nio-8080-exec-7] f.taskmanager.Controller.TaskController  : A get all tasks  request initialized 
-2021-12-19 15:33:39.966  INFO 13364 --- [http-nio-8080-exec-8] f.taskmanager.Controller.TaskController  : A get all tasks  request initialized 
-2021-12-19 15:34:10.313  INFO 13364 --- [http-nio-8080-exec-9] f.taskmanager.Controller.TaskController  : A get all tasks  request initialized 
-2021-12-19 15:40:38.815  INFO 13364 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2021-12-19 15:40:38.818  INFO 13364 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-12-19 15:40:38.825  INFO 13364 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-22 10:36:19.151  INFO 4572 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-22 10:36:19.154  INFO 4572 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-22 10:36:19.160  INFO 4572 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-22 10:43:43.374  INFO 11480 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Starting TaskManagerApplication using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 11480 (C:\Users\LaithMo\TaskManager\target\classes started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 10:43:43.375  INFO 11480 --- [restartedMain] f.taskmanager.TaskManagerApplication     : No active profile set, falling back to default profiles: default
+2021-12-22 10:43:43.422  INFO 11480 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-22 10:43:43.423  INFO 11480 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-22 10:43:44.432  INFO 11480 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-22 10:43:44.490  INFO 11480 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 3 JPA repository interfaces.
+2021-12-22 10:43:45.264  INFO 11480 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-22 10:43:45.273  INFO 11480 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-22 10:43:45.274  INFO 11480 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-22 10:43:45.559  INFO 11480 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-12-22 10:43:45.560  INFO 11480 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2136 ms
+2021-12-22 10:43:46.034  INFO 11480 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-22 10:43:46.078  INFO 11480 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2021-12-22 10:43:46.193  INFO 11480 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-22 10:43:46.279  INFO 11480 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-22 10:43:46.573  INFO 11480 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-22 10:43:46.590  INFO 11480 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-12-22 10:43:47.571  INFO 11480 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-22 10:43:47.578  INFO 11480 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-22 10:43:48.066  WARN 11480 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-22 10:43:48.364  INFO 11480 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3e5e6d9f, org.springframework.security.web.context.SecurityContextPersistenceFilter@22062850, org.springframework.security.web.header.HeaderWriterFilter@7dad85e0, org.springframework.security.web.authentication.logout.LogoutFilter@3251df45, firsttask.taskmanager.Security.Filters.JwtRequestFilter@569eaf4f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5821be8d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1239964b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1bad588d, org.springframework.security.web.session.SessionManagementFilter@7586d098, org.springframework.security.web.access.ExceptionTranslationFilter@35d3d929, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@15928830]
+2021-12-22 10:43:49.332  INFO 11480 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-22 10:43:49.341  INFO 11480 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2021-12-22 10:43:49.404  INFO 11480 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-22 10:43:49.420  INFO 11480 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Started TaskManagerApplication in 6.504 seconds (JVM running for 8.038)
+2021-12-22 10:43:49.820  INFO 11480 --- [RMI TCP Connection(1)-172.20.48.132] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-22 10:43:49.821  INFO 11480 --- [RMI TCP Connection(1)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-22 10:43:49.823  INFO 11480 --- [RMI TCP Connection(1)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-12-22 10:44:18.499  INFO 11480 --- [http-nio-8080-exec-2] f.taskmanager.Controller.UserController  : A create user request initialized 
+2021-12-22 10:44:22.796  INFO 11480 --- [http-nio-8080-exec-3] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 10:44:37.825  INFO 11480 --- [http-nio-8080-exec-4] f.taskmanager.Controller.UserController  : A Delete user request initialized 
+2021-12-22 10:44:37.887 ERROR 11480 --- [http-nio-8080-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+org.springframework.security.core.userdetails.UsernameNotFoundException: Laith@gmail.com
+	at firsttask.taskmanager.Security.UserDetailsServiceImpl.loadUserByUsername(UserDetailsServiceImpl.java:29) ~[classes/:na]
+	at firsttask.taskmanager.Security.Filters.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:42) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.13.jar:5.3.13]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.0.jar:5.6.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.6.0.jar:5.6.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.6.0.jar:5.6.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.0.jar:5.6.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.6.0.jar:5.6.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.6.0.jar:5.6.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.13.jar:5.3.13]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.0.jar:5.6.0]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) ~[spring-security-web-5.6.0.jar:5.6.0]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) ~[spring-security-web-5.6.0.jar:5.6.0]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.0.jar:5.6.0]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.6.0.jar:5.6.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.13.jar:5.3.13]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.0.jar:5.6.0]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) ~[spring-security-web-5.6.0.jar:5.6.0]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) ~[spring-security-web-5.6.0.jar:5.6.0]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.3.13.jar:5.3.13]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.3.13.jar:5.3.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.13.jar:5.3.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.13.jar:5.3.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.13.jar:5.3.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.13.jar:5.3.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.6.1.jar:2.6.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.13.jar:5.3.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.13.jar:5.3.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.13.jar:5.3.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.55.jar:9.0.55]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2021-12-22 10:45:28.018  INFO 11480 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-22 10:45:28.021  INFO 11480 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-22 10:45:28.038  INFO 11480 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-22 10:45:34.377  INFO 8804 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Starting TaskManagerApplication using Java 17.0.1 on DESKTOP-LLPVJ3R with PID 8804 (C:\Users\LaithMo\TaskManager\target\classes started by LaithMo in C:\Users\LaithMo\TaskManager)
+2021-12-22 10:45:34.378  INFO 8804 --- [restartedMain] f.taskmanager.TaskManagerApplication     : No active profile set, falling back to default profiles: default
+2021-12-22 10:45:34.427  INFO 8804 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-22 10:45:34.427  INFO 8804 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-22 10:45:35.370  INFO 8804 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-22 10:45:35.425  INFO 8804 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 3 JPA repository interfaces.
+2021-12-22 10:45:36.127  INFO 8804 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-22 10:45:36.134  INFO 8804 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-22 10:45:36.135  INFO 8804 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-22 10:45:36.215  INFO 8804 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-12-22 10:45:36.215  INFO 8804 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1788 ms
+2021-12-22 10:45:36.629  INFO 8804 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-22 10:45:36.668  INFO 8804 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2021-12-22 10:45:36.780  INFO 8804 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-22 10:45:36.864  INFO 8804 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-22 10:45:37.184  INFO 8804 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-22 10:45:37.203  INFO 8804 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-12-22 10:45:38.210  INFO 8804 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-22 10:45:38.218  INFO 8804 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-22 10:45:38.700  WARN 8804 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-22 10:45:38.996  INFO 8804 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3bcb49cd, org.springframework.security.web.context.SecurityContextPersistenceFilter@a751617, org.springframework.security.web.header.HeaderWriterFilter@6596b023, org.springframework.security.web.authentication.logout.LogoutFilter@61e814f4, firsttask.taskmanager.Security.Filters.JwtRequestFilter@4fbf7bf6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@71510c6d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4418bf42, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3b07a448, org.springframework.security.web.session.SessionManagementFilter@754891bb, org.springframework.security.web.access.ExceptionTranslationFilter@12efb4e6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@9cdcd49]
+2021-12-22 10:45:40.021  INFO 8804 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-22 10:45:40.030  INFO 8804 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2021-12-22 10:45:40.093  INFO 8804 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-22 10:45:40.110  INFO 8804 --- [restartedMain] f.taskmanager.TaskManagerApplication     : Started TaskManagerApplication in 6.181 seconds (JVM running for 7.039)
+2021-12-22 10:45:40.282  INFO 8804 --- [RMI TCP Connection(4)-172.20.48.132] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-22 10:45:40.282  INFO 8804 --- [RMI TCP Connection(4)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-22 10:45:40.284  INFO 8804 --- [RMI TCP Connection(4)-172.20.48.132] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-12-22 10:46:16.965  INFO 8804 --- [http-nio-8080-exec-2] f.taskmanager.Controller.UserController  : A create user request initialized 
+2021-12-22 10:46:21.746  INFO 8804 --- [http-nio-8080-exec-3] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 10:46:47.616  INFO 8804 --- [http-nio-8080-exec-4] f.taskmanager.Controller.UserController  : Authentication is starting ...
+2021-12-22 10:47:14.048  INFO 8804 --- [http-nio-8080-exec-5] f.taskmanager.Controller.UserController  : A Delete user request initialized 
+2021-12-22 10:47:42.918  INFO 8804 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-22 10:47:42.921  INFO 8804 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-22 10:47:42.927  INFO 8804 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

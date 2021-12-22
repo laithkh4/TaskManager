@@ -3,6 +3,7 @@ package firsttask.taskmanager.Controller;
 
 import firsttask.taskmanager.Exceptions.DateNotAllowedException;
 import firsttask.taskmanager.Exceptions.UserNotFoundException;
+import firsttask.taskmanager.Logic.TaskControllerLogic;
 import firsttask.taskmanager.Repositories.TaskRepository;
 import firsttask.taskmanager.Repositories.UserRepository;
 import firsttask.taskmanager.domain.Task;
@@ -26,129 +27,47 @@ import java.util.Optional;
 @RestController// don't ever forget this annotation
 @RequestMapping("/user")
 public class TaskController {
-    private final TaskRepository taskRepository;
-    private final UserRepository userRepository;
     private static  final Logger LOGGER = LoggerFactory.getLogger(TaskController.class);
-    public TaskController(TaskRepository taskRepository, UserRepository userRepository) {
-        this.taskRepository = taskRepository;
-        this.userRepository = userRepository;
+    private TaskControllerLogic taskControllerLogic;
+    public TaskController(TaskControllerLogic taskControllerLogic) {
+        this.taskControllerLogic = taskControllerLogic;
     }
 
-    //return all tasks
+
     @GetMapping("/tasks")
     public Page<Task> returnAllTasks(@RequestParam Optional<Integer> page, @RequestParam Optional<String> sortBy,@RequestParam Optional<String> sortDir) {
         LOGGER.info("A get all tasks  request initialized ");
-        User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Page<Task> tasks = taskRepository.findAllByUser_Id(requestingUser.getId(),
-                PageRequest.of(page.orElse(0),5,Sort.Direction.fromString(sortDir.orElse("desc")), sortBy.orElse("id")));
         LOGGER.trace("retrieve all tasks ");
-        return tasks;
+        return taskControllerLogic.returnAllTasks(page,sortBy,sortDir);
     }
-
-
-
-    //return a task by its id
     @GetMapping("/tasks/{id}")
     public Task returnTask(@PathVariable Long id) throws  AccessDeniedException {
         LOGGER.info("A get task request initialized ");
-        Task task = taskRepository.findById(id) //
-                .orElseThrow(() -> new UserNotFoundException(id));
-        User requestedUser=userRepository.findById(task.getUserId()).orElseThrow(() -> new UserNotFoundException(task.getUserId()));
-        User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (requestedUser.getId().longValue()==requestingUser.getId().longValue() && requestedUser.getPassword().equals(requestingUser.getPassword())) {
             LOGGER.trace("retrieve task with id "+ id );
-            return  task;}
-        else {
-            throw new AccessDeniedException("You are not allowed to access this page!");
-        }
+            return  taskControllerLogic.returnTask(id);
     }
-
-
-
     @PostMapping("/tasks")
-    Task createTask(@RequestBody Task task) {
+    public Task createTask(@RequestBody Task task) {
         LOGGER.info("A create task request initialized ");
-        User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        checkDate(task,false);
-        Task newTask = taskRepository.save(task);
-        task.setUser(requestingUser);
-        //notice that we have to add the task to the user object and add the user object to the task so that jpa can create load the table correctly for us
-        requestingUser.addTask(task);
-        userRepository.save(requestingUser);
         LOGGER.trace("Creating new  task");
-        return newTask;
+        return taskControllerLogic.createTask(task);
     }
-
-
-
-    // edit the task from the owner user only so we make authentication first
     @PutMapping("/tasks/{id}")
-    Task edTask(@RequestBody Task editTask, @PathVariable Long id) throws AccessDeniedException {
+    public Task edTask(@RequestBody Task editTask, @PathVariable Long id) throws AccessDeniedException {
         LOGGER.info("A Update task request initialized ");
-        Task task = taskRepository.findById(id) //
-                .orElseThrow(() -> new UserNotFoundException(id));
-        User requestedUser=userRepository.findById(task.getUserId()).orElseThrow(() -> new UserNotFoundException(task.getUserId()));
-        User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (requestedUser.getId().longValue()==requestingUser.getId().longValue() && requestedUser.getPassword().equals(requestingUser.getPassword())) {
+        LOGGER.trace("Updating a task to a user with id : " + id );
+            return taskControllerLogic.editOneTask(editTask,id);
 
-            checkDate(task,true);
-            Task updatedTask = taskRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
-            updatedTask.setDescription(editTask.getDescription());
-            updatedTask.setCompleted(editTask.isCompleted());
-            updatedTask.setEndDate(editTask.getEndDate());
-            updatedTask.setStartDate(editTask.getStartDate());
-            LOGGER.trace("Updating a task to a user with id : " + id );
-            return updatedTask;
-        } else {
-            throw new AccessDeniedException("You are not allowed to access this page!");
-        }
 
     }
-
-    private void checkDate(Task task,boolean editedTask) {
-        Date startDateToCheck = task.getStartDate();
-        Date endDateToCheck = task.getEndDate();
-
-        User requestingUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        List<Task> tasks = taskRepository.findAllByUser_Id(requestingUser.getId());
-        for(Task testTask : tasks){
-
-            if(editedTask && task.getId().longValue() == testTask.getId().longValue())
-                continue;
-            if (startDateToCheck.after(testTask.getStartDate()) && startDateToCheck.before(testTask.getEndDate()) )
-                throw new DateNotAllowedException();
-            else if (endDateToCheck.after(testTask.getStartDate()) && endDateToCheck.before(testTask.getEndDate()))
-                throw new DateNotAllowedException();
-            else if (startDateToCheck.equals(testTask.getStartDate()) ||startDateToCheck.equals(testTask.getEndDate()) )
-                throw new DateNotAllowedException();
-            else if (endDateToCheck.equals(testTask.getStartDate()) ||endDateToCheck.equals(testTask.getEndDate()) )
-                throw new DateNotAllowedException();
-        }
-    }
-
-
-    // delete a task from the owner only
     @DeleteMapping("/tasks/{id}")
-    void  deleteTask(@PathVariable Long id,  HttpServletResponse response) throws IOException {
+    public void  deleteTask(@PathVariable Long id) throws IOException {
         LOGGER.info("A delete task  request initialized ");
-        Task task = taskRepository.findById(id) //
-                .orElseThrow(() -> new UserNotFoundException(id));
-        User requestedUser=userRepository.findById(task.getUserId()).orElseThrow(() -> new UserNotFoundException(task.getUserId()));
-        User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (requestedUser.getId().longValue()==requestingUser.getId().longValue() && requestedUser.getPassword().equals(requestingUser.getPassword())) {
-
-            if (taskRepository.existsById(id)) {
-                taskRepository.deleteById(id);
-            }
-
-
             LOGGER.trace("Redirecting to the Tasks page after deleting task with id : " + id);
-            response.sendRedirect("");
 
-        }else {
-            throw new AccessDeniedException("You are not allowed to access this page!");
-        }
+          taskControllerLogic.deleteTask(id);
+
+
 
     }
-
 }

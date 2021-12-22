@@ -18,7 +18,7 @@ import java.util.List;
 
 @Entity
 @NoArgsConstructor
-@RequiredArgsConstructor
+/*@RequiredArgsConstructor*/
 //@Getter
 //@Setter
 //@ToString
@@ -33,9 +33,9 @@ public class User implements UserDetails {// this interface used to hook the use
     private String name;
 
     @NonNull
-
-    @Column(nullable = false, length = 100)
     private String password;
+  //  @Column(nullable = false, length = 100)
+
 
     @NonNull
     @Size(min = 8, max = 50)
@@ -50,6 +50,15 @@ public class User implements UserDetails {// this interface used to hook the use
 
     @OneToMany(mappedBy = "user")
     private List<Tokens> Tokens = new ArrayList<>();
+
+
+    public User(Long id, @NonNull String name, @NonNull String password, @NonNull String email, @NonNull int age) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.age = age;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -92,8 +101,9 @@ public class User implements UserDetails {// this interface used to hook the use
         return name;
     }
     @Override
-    @JsonIgnore// To prevent the password from being  retrieved with the request(more secure)
+   @JsonIgnore// To prevent the password from being  retrieved with the request(more secure)
     @JsonProperty(value = "user_password")
+    // for now this two annotations make the json request in the testing making the value of the password equal to null
     public String getPassword() {
         return password;
     }
