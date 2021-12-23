@@ -116,19 +116,13 @@ class UserControllerLogicTest {
 
     @Test
     void logOutAll() {
-        HttpServletRequest  request = Mockito.mock(HttpServletRequest.class);
         User user = new User((long)12,"Laith","password","laithmosheer@gmail.com",22);
         Authentication authentication = Mockito.mock(Authentication.class);
         SecurityContext securityContext = Mockito.mock(SecurityContext.class);
         Mockito.when(securityContext.getAuthentication()).thenReturn(authentication);
         SecurityContextHolder.setContext(securityContext);
-
         when(SecurityContextHolder.getContext().getAuthentication().getPrincipal()).thenReturn(user);
-
-        when(request.getHeader("Authorization")).thenReturn("Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJMYWl0aEBnbWFpbC5jb20iLCJleHAiOjE2NDAxOTg4MDcsImlhdCI6MTY0MDE2MjgwN30.FuPicrgmhbyp5kdoR1ls0q0eiUv1Py-fsFSC0jIhMs8");
-        final String authorizationHeader = request.getHeader("Authorization");
-        String jwt = authorizationHeader.substring(7);
-        userControllerLogic.logOutAll(request);
+        userControllerLogic.logOutAll();
         verify( tokenRepository,times(1)).deleteAllByUserId(user.getId());
     }
 }

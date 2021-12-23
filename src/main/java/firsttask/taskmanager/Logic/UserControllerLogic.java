@@ -65,7 +65,7 @@ public class UserControllerLogic {
         tokenRepository.deleteById(jwt);
     }
 
-    public void logOutAll(HttpServletRequest request){
+    public void logOutAll(){
         User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         tokenRepository.deleteAllByUserId(requestingUser.getId());
 

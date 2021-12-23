@@ -49,8 +49,8 @@ public class UserController {
         userControllerLogic.logOut(request);
     }
     @PostMapping("/user/logoutall")
-    public void logOutAll(HttpServletRequest request){
-        userControllerLogic.logOutAll(request);
+    public void logOutAll(){
+        userControllerLogic.logOutAll();
 
     }
     @GetMapping("/user")
