@@ -1,5 +1,6 @@
-package firsttask.taskmanager.Logic;
+package firsttask.taskmanager.Services;
 
+import firsttask.taskmanager.Exceptions.UserAlreadyExistException;
 import firsttask.taskmanager.Models.AuthenticationRequest;
 import firsttask.taskmanager.Models.AuthenticationResponse;
 import firsttask.taskmanager.Repositories.TaskRepository;
@@ -23,13 +24,15 @@ import org.springframework.security.test.context.support.WithMockUser;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class UserControllerLogicTest {
+class UserServicesTest {
     @Mock
     private  UserDetailsServiceImpl userDetailsService;
     @Mock
@@ -41,16 +44,29 @@ class UserControllerLogicTest {
     @Mock
     private  TokenRepository tokenRepository;
     @InjectMocks
-    private UserControllerLogic userControllerLogic;
+    private UserServices userServices;
     @Test
-    void createNewUser() {
+    void createNewUserSuccess() {
         User user = new User((long)1,"Laith","password","laithmosheer@gmail.com",22);
         when(userRepository.save(user)).thenReturn(user);
-        assertEquals(userControllerLogic.createNewUser(user),user);
+        assertEquals(userServices.createNewUser(user),user);
     }
-
     @Test
-    void createAuthenticationToken() {
+    void createNewUserFail() {
+        User user = new User((long) 1, "Laith", "password", "laithmosheer@gmail.com", 22);
+        when(userRepository.findByEmail(user.getUsername())).thenReturn(Optional.of(user));
+       assertThrows(UserAlreadyExistException.class,()-> userServices.createNewUser(user));
+
+/*        try {
+            User user = new User((long) 1, "Laith", "password", "laithmosheer@gmail.com", 22);
+            when(userRepository.findByEmail(user.getUsername())).thenReturn(Optional.of(user));
+             userServices.createNewUser(user);
+        }catch(UserAlreadyExistException ex){
+            assertEquals(ex.getMessage(),"This email is already registered please try with a different email!");
+        }*/
+    }
+    @Test
+    void createAuthenticationTokenSuccess() {
         AuthenticationRequest authenticationRequest = new AuthenticationRequest("laithmosheer@gamil.com","password");
         User user = new User((long)1,"Laith","password","laithmosheer@gmail.com",22);
         when(userDetailsService.loadUserByUsername(authenticationRequest.getUsername())).thenReturn(user);
@@ -64,10 +80,8 @@ class UserControllerLogicTest {
         when(userRepository.save(user)).thenReturn(user);
         AuthenticationResponse authenticationResponse= new AuthenticationResponse();
         authenticationResponse.setJwt(tok);
-        assertEquals(userControllerLogic.createAuthenticationToken(authenticationRequest).getJwt(),authenticationResponse.getJwt());
+        assertEquals(userServices.createAuthenticationToken(authenticationRequest).getJwt(),authenticationResponse.getJwt());
     }
-
-    @WithMockUser
     @Test
     void editOneUser() {
         User user = new User((long)12,"Laith","password","laithmosheer@gmail.com",22);
@@ -79,9 +93,8 @@ class UserControllerLogicTest {
 
         when(SecurityContextHolder.getContext().getAuthentication().getPrincipal()).thenReturn(user);
         when(   userRepository.save(user)).thenReturn(user);
-        assertEquals(userControllerLogic.editOneUser(user),user);
+        assertEquals(userServices.editOneUser(user),user);
     }
-
     @Test()
     void deleteUser() throws IOException {
         User user = new User((long)12,"Laith","password","laithmosheer@gmail.com",22);
@@ -89,31 +102,23 @@ class UserControllerLogicTest {
         SecurityContext securityContext = Mockito.mock(SecurityContext.class);
         Mockito.when(securityContext.getAuthentication()).thenReturn(authentication);
         SecurityContextHolder.setContext(securityContext);
-
         when(SecurityContextHolder.getContext().getAuthentication().getPrincipal()).thenReturn(user);
-        when(userRepository.existsById(anyLong())).thenReturn(true);
-        userControllerLogic.deleteUser();
+        userServices.deleteUser();
         verify( tokenRepository,times(1)).deleteAllByUserId(user.getId());
         verify( taskRepository,times(1)).deleteAllByUser_Id(user.getId());
         verify( userRepository,times(1)).deleteById(user.getId());
 
     }
-
-
-
-
-
-  @Test
+    @Test
     void logOut() throws Exception {
       HttpServletRequest  request = Mockito.mock(HttpServletRequest.class);
 
       when(request.getHeader("Authorization")).thenReturn("Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJMYWl0aEBnbWFpbC5jb20iLCJleHAiOjE2NDAxOTg4MDcsImlhdCI6MTY0MDE2MjgwN30.FuPicrgmhbyp5kdoR1ls0q0eiUv1Py-fsFSC0jIhMs8");
         final String authorizationHeader = request.getHeader("Authorization");
         String jwt = authorizationHeader.substring(7);
-        userControllerLogic.logOut(request);
+        userServices.logOut(request);
         verify( tokenRepository,times(1)).deleteById(jwt);
     }
-
     @Test
     void logOutAll() {
         User user = new User((long)12,"Laith","password","laithmosheer@gmail.com",22);
@@ -122,7 +127,18 @@ class UserControllerLogicTest {
         Mockito.when(securityContext.getAuthentication()).thenReturn(authentication);
         SecurityContextHolder.setContext(securityContext);
         when(SecurityContextHolder.getContext().getAuthentication().getPrincipal()).thenReturn(user);
-        userControllerLogic.logOutAll();
+        userServices.logOutAll();
         verify( tokenRepository,times(1)).deleteAllByUserId(user.getId());
+    }
+
+    @Test
+    void returnUser() {
+        User user = new User((long)12,"Laith","password","laithmosheer@gmail.com",22);
+        Authentication authentication = Mockito.mock(Authentication.class);
+        SecurityContext securityContext = Mockito.mock(SecurityContext.class);
+        Mockito.when(securityContext.getAuthentication()).thenReturn(authentication);
+        SecurityContextHolder.setContext(securityContext);
+        when(SecurityContextHolder.getContext().getAuthentication().getPrincipal()).thenReturn(user);
+        assertEquals(userServices.returnUser(),user);
     }
 }

@@ -1,4 +1,4 @@
-package firsttask.taskmanager.Logic;
+package firsttask.taskmanager.Services;
 
 import firsttask.taskmanager.Exceptions.UserAlreadyExistException;
 import firsttask.taskmanager.Models.AuthenticationRequest;
@@ -10,7 +10,6 @@ import firsttask.taskmanager.Security.JWTSecurity.JwtUtil;
 import firsttask.taskmanager.Security.UserDetailsServiceImpl;
 import firsttask.taskmanager.domain.Tokens;
 import firsttask.taskmanager.domain.User;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,17 +17,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
 
 @Service
-public class UserControllerLogic {
+public class UserServices {
 
     private final UserDetailsServiceImpl userDetailsService;
     private final JwtUtil jwtTokenUtil;
     private final TaskRepository taskRepository;
     private final UserRepository userRepository;
     private final TokenRepository tokenRepository;
-    public UserControllerLogic(TaskRepository taskRepository, UserRepository userRepository, TokenRepository tokenRepository,  UserDetailsServiceImpl userDetailsService, JwtUtil jwtTokenUtil)  {
+    public UserServices(TaskRepository taskRepository, UserRepository userRepository, TokenRepository tokenRepository, UserDetailsServiceImpl userDetailsService, JwtUtil jwtTokenUtil)  {
         this.taskRepository = taskRepository;
         this.userRepository = userRepository;
         this.tokenRepository = tokenRepository;
@@ -37,16 +35,20 @@ public class UserControllerLogic {
     }
 
     public User createNewUser( User newUser)  {
+
         if(userRepository.findByEmail(newUser.getUsername()).isEmpty()){
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         newUser.setPassword( "{bcrypt}" + encoder.encode(newUser.getPassword()));
         userRepository.save(newUser);
         return newUser;
         }
-        else throw new UserAlreadyExistException();
+        else {
+
+            throw new UserAlreadyExistException();
+        }
     }
 
-    public AuthenticationResponse createAuthenticationToken( AuthenticationRequest authenticationRequest)  throws BadCredentialsException {
+    public AuthenticationResponse createAuthenticationToken( AuthenticationRequest authenticationRequest)  {
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
         final String jwt = jwtTokenUtil.generateToken(userDetails);
         Tokens token= new Tokens();
@@ -86,18 +88,10 @@ public class UserControllerLogic {
     }
 
     public void deleteUser()  {
-
         User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        if (userRepository.existsById(requestingUser.getId())) {
             taskRepository.deleteAllByUser_Id(requestingUser.getId());
             tokenRepository.deleteAllByUserId(requestingUser.getId());
             userRepository.deleteById(requestingUser.getId());
-
-        }
-
-      //  response.sendRedirect("/login");// the reason that delete return forbidden after the delete request  is that this redirect to the previously called users page which forbidden to user not logged in
-
     }
 
 
