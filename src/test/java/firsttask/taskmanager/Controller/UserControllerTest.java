@@ -60,18 +60,13 @@ class UserControllerTest {
         assertEquals(HttpStatus.OK.value(),response.getStatus());
     }
 
-    @WithMockUser//("/Laith")
+
     @Test
     void createAuthenticationToken() throws Exception {
         User user = new User((long)1,"Laith","password","laithmosheer@gmail.com",22);
-        AuthenticationRequest authenticationRequest= new AuthenticationRequest("laithmosheer@gmail.com","password");
-        Authentication authentication= new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(),authenticationRequest.getPassword());
-        when(authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(),authenticationRequest.getPassword())))
-                .thenReturn(authentication);
-        AuthenticationResponse authenticationResponse=new AuthenticationResponse();
-        authenticationResponse.setJwt(jwtUtil.generateToken(userDetailsService.loadUserByUsername(authenticationRequest.getUsername())));
-        when(userServices.createAuthenticationToken(authenticationRequest)).thenReturn(authenticationResponse);
-        String JsonToken= mapper.writeValueAsString(authenticationResponse);
+        AuthenticationResponse resp= new AuthenticationResponse();
+        resp.setJwt(jwtUtil.generateToken(user));
+        String JsonToken= mapper.writeValueAsString(resp);
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .post("/login")
                 .accept(MediaType.APPLICATION_JSON).content(JsonToken)
@@ -80,6 +75,7 @@ class UserControllerTest {
         MockHttpServletResponse response= mvcResult.getResponse();
         assertEquals(HttpStatus.OK.value(),response.getStatus());
     }
+
 
     @WithMockUser
     @Test

@@ -17,6 +17,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -43,13 +46,15 @@ class UserServicesTest {
     private  UserRepository userRepository;
     @Mock
     private  TokenRepository tokenRepository;
+    @Mock
+    private AuthenticationManager authenticationManager;
     @InjectMocks
     private UserServices userServices;
     @Test
     void createNewUserSuccess() {
         User user = new User((long)1,"Laith","password","laithmosheer@gmail.com",22);
         when(userRepository.save(user)).thenReturn(user);
-        assertEquals(userServices.createNewUser(user),user);
+        assertEquals(user,userServices.createNewUser(user));
     }
     @Test
     void createNewUserFail() {
@@ -67,6 +72,7 @@ class UserServicesTest {
     }
     @Test
     void createAuthenticationTokenSuccess() {
+
         AuthenticationRequest authenticationRequest = new AuthenticationRequest("laithmosheer@gamil.com","password");
         User user = new User((long)1,"Laith","password","laithmosheer@gmail.com",22);
         when(userDetailsService.loadUserByUsername(authenticationRequest.getUsername())).thenReturn(user);
@@ -80,7 +86,13 @@ class UserServicesTest {
         when(userRepository.save(user)).thenReturn(user);
         AuthenticationResponse authenticationResponse= new AuthenticationResponse();
         authenticationResponse.setJwt(tok);
-        assertEquals(userServices.createAuthenticationToken(authenticationRequest).getJwt(),authenticationResponse.getJwt());
+        assertEquals(authenticationResponse.getJwt(),userServices.createAuthenticationToken(authenticationRequest).getJwt());
+    }
+    @Test
+    void createAuthenticationTokenFail() {
+        AuthenticationRequest authenticationRequest = new AuthenticationRequest("laithmosheer@gamil.com","password");
+        when( authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(),authenticationRequest.getPassword()))).thenThrow(BadCredentialsException.class);
+        assertThrows(BadCredentialsException.class,()->userServices.createAuthenticationToken(authenticationRequest));
     }
     @Test
     void editOneUser() {
@@ -139,6 +151,6 @@ class UserServicesTest {
         Mockito.when(securityContext.getAuthentication()).thenReturn(authentication);
         SecurityContextHolder.setContext(securityContext);
         when(SecurityContextHolder.getContext().getAuthentication().getPrincipal()).thenReturn(user);
-        assertEquals(userServices.returnUser(),user);
+        assertEquals(user,userServices.returnUser());
     }
 }

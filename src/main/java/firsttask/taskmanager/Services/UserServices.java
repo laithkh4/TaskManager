@@ -10,6 +10,9 @@ import firsttask.taskmanager.Security.JWTSecurity.JwtUtil;
 import firsttask.taskmanager.Security.UserDetailsServiceImpl;
 import firsttask.taskmanager.domain.Tokens;
 import firsttask.taskmanager.domain.User;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -26,12 +29,15 @@ public class UserServices {
     private final TaskRepository taskRepository;
     private final UserRepository userRepository;
     private final TokenRepository tokenRepository;
-    public UserServices(TaskRepository taskRepository, UserRepository userRepository, TokenRepository tokenRepository, UserDetailsServiceImpl userDetailsService, JwtUtil jwtTokenUtil)  {
+    private final AuthenticationManager authenticationManager;
+
+    public UserServices(TaskRepository taskRepository, UserRepository userRepository, TokenRepository tokenRepository, UserDetailsServiceImpl userDetailsService, JwtUtil jwtTokenUtil, AuthenticationManager authenticationManager)  {
         this.taskRepository = taskRepository;
         this.userRepository = userRepository;
         this.tokenRepository = tokenRepository;
         this.userDetailsService = userDetailsService;
         this.jwtTokenUtil = jwtTokenUtil;
+        this.authenticationManager = authenticationManager;
     }
 
     public User createNewUser( User newUser)  {
@@ -49,6 +55,15 @@ public class UserServices {
     }
 
     public AuthenticationResponse createAuthenticationToken( AuthenticationRequest authenticationRequest)  {
+        try {
+
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(),authenticationRequest.getPassword()));
+        }
+        catch (BadCredentialsException e) {
+
+            throw new BadCredentialsException("Incorrect username or password", e);
+        }
+
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
         final String jwt = jwtTokenUtil.generateToken(userDetails);
         Tokens token= new Tokens();

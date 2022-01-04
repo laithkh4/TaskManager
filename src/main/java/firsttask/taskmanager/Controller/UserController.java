@@ -7,9 +7,7 @@ import firsttask.taskmanager.Models.AuthenticationResponse;
 import firsttask.taskmanager.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,11 +16,11 @@ import java.io.IOException;
 
 @RestController
 public class UserController {
-    private final AuthenticationManager authenticationManager;
+
     private final UserServices userServices;
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
-    public UserController(AuthenticationManager authenticationManager, UserServices userServices) {
-        this.authenticationManager = authenticationManager;
+    public UserController( UserServices userServices) {
+
         this.userServices = userServices;
     }
     @PostMapping("/register")
@@ -34,17 +32,6 @@ public class UserController {
     }
     @PostMapping("/login")
     public AuthenticationResponse createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest)  throws BadCredentialsException {
-        try {
-
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(),authenticationRequest.getPassword()));
-
-        }
-        catch (BadCredentialsException e) {
-            LOGGER.info("an exception must be thrown here ");
-
-            throw new BadCredentialsException("Incorrect username or password", e);
-        }
-
         return  userServices.createAuthenticationToken(authenticationRequest);
     }
 

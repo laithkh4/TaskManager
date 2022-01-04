@@ -93,6 +93,7 @@ public class TaskServices {
         User requestingUser= (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (requestedUser.getId().longValue()==requestingUser.getId().longValue() && requestedUser.getPassword().equals(requestingUser.getPassword())) {
             if (taskRepository.existsById(id)) {
+
                 taskRepository.deleteById(id);
             }
         }else {

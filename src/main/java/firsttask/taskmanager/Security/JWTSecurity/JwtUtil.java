@@ -23,6 +23,7 @@ public class JwtUtil {
     public JwtUtil(TokenRepository tokenRepository) {
         this.tokenRepository = tokenRepository;
     }
+
     public boolean isTokenInDB(String token, UserDetails userDetails){
         return tokenRepository.existsById(token);
     }

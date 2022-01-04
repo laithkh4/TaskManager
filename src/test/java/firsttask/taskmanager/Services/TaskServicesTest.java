@@ -27,7 +27,8 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
+
 @ExtendWith(MockitoExtension.class)
 class TaskServicesTest {
     @Mock
@@ -58,7 +59,7 @@ class TaskServicesTest {
         when( taskRepository.findAllByUser_Id(user.getId(),
                 PageRequest.of(page.orElse(0),5, Sort.Direction.fromString(sortDir.orElse("desc")), sortBy.orElse("id"))))
                 .thenReturn(pages);
-        assertEquals(taskServices.returnAllTasks(page,sortBy,sortDir),pages);
+        assertEquals(pages, taskServices.returnAllTasks(page,sortBy,sortDir));
     }
     @Test
     void returnTaskSuccess() throws AccessDeniedException {
@@ -74,7 +75,7 @@ class TaskServicesTest {
         SecurityContextHolder.setContext(securityContext);
         when(SecurityContextHolder.getContext().getAuthentication().getPrincipal()).thenReturn(user);
 
-        assertEquals(taskServices.returnTask(task.getId()),task);
+        assertEquals(task,taskServices.returnTask(task.getId()));
 
     }
     @Test
@@ -104,7 +105,7 @@ class TaskServicesTest {
         Task task = new Task("Testing the application",false, new Date(System.currentTimeMillis() - 1000 * 60 * 60 * 10) , new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 2));
         //task.setUser(user);
         when(taskRepository.save(task)).thenReturn(task);
-        assertEquals(taskServices.createTask(task),task);
+        assertEquals(task,taskServices.createTask(task));
     }
     @Test
     void createTaskFail() {
@@ -134,7 +135,7 @@ class TaskServicesTest {
         SecurityContextHolder.setContext(securityContext);
         when(SecurityContextHolder.getContext().getAuthentication().getPrincipal()).thenReturn(user);
         when(taskRepository.findById(task.getId())).thenReturn(Optional.of(task));
-        assertEquals(taskServices.editOneTask(task,task.getId()),task);
+        assertEquals(task,taskServices.editOneTask(task,task.getId()));
     }
     @Test
     void editOneTaskFail ()  {
@@ -153,5 +154,46 @@ class TaskServicesTest {
         when(userRepository.findById(task.getUserId())).thenReturn(Optional.of(user));
         when(taskRepository.findById(task.getId())).thenReturn(Optional.of(task));
         assertThrows(AccessDeniedException.class,()->taskServices.editOneTask(task,task.getId()));
+    }
+
+    @Test
+    void deleteTaskSuccess() throws AccessDeniedException {
+
+        User user = new User((long)12,"Laith","password","laithmosheer@gmail.com",22);
+        Task task = new Task("Testing the application",false, new Date(System.currentTimeMillis() - 1000 * 60 * 60 * 10) , new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 2));
+        task.setId((long)1);
+        task.setUser(user);
+
+        user.addTask(task);
+        when(taskRepository.findById(task.getId())).thenReturn(Optional.of(task));
+        Authentication authentication = mock(Authentication.class);
+        when(userRepository.findById(task.getUserId())).thenReturn(Optional.of(user));
+        SecurityContext securityContext = mock(SecurityContext.class);
+        when(securityContext.getAuthentication()).thenReturn(authentication);
+        SecurityContextHolder.setContext(securityContext);
+        when(SecurityContextHolder.getContext().getAuthentication().getPrincipal()).thenReturn(user);
+      //   when(taskRepository.findById(task.getId())).thenReturn(Optional.of(task));
+        when(taskRepository.existsById(anyLong())).thenReturn(true);
+        taskServices.deleteTask((long)1);
+
+        verify(taskRepository,times(1)).deleteById((long)1);
+    }
+    @Test
+    void deleteTaskFail() throws AccessDeniedException {
+
+        User user = new User((long)12,"Laith","password","laithmosheer@gmail.com",22);
+        Task task = new Task("Testing the application",false, new Date(System.currentTimeMillis() - 1000 * 60 * 60 * 10) , new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 2));
+        task.setId((long)1);
+        task.setUser(user);
+        user.addTask(task);
+        when(taskRepository.findById(task.getId())).thenReturn(Optional.of(task));
+        User user2 = new User((long)14,"ahmad","password","ahmad@gmail.com",22);
+        Authentication authentication = mock(Authentication.class);
+        when(userRepository.findById(task.getUserId())).thenReturn(Optional.of(user));
+        SecurityContext securityContext = mock(SecurityContext.class);
+        when(securityContext.getAuthentication()).thenReturn(authentication);
+        SecurityContextHolder.setContext(securityContext);
+        when(SecurityContextHolder.getContext().getAuthentication().getPrincipal()).thenReturn(user2);
+        assertThrows(AccessDeniedException.class,()->taskServices.deleteTask((long)1));
     }
 }
